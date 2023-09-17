@@ -1,0 +1,53 @@
+[
+    {
+      "question": "What does the acronym 'LED' stand for in the context of eco-friendly lighting?",
+      "options": ["Light Emitting Device", "Low Energy Display", "Light Emitting Diode", "Luminous Energy Detector"],
+      "correctAnswer": "Light Emitting Diode"
+    },
+    {
+      "question": "Which renewable energy source harnesses energy from the sun?",
+      "options": ["Wind Power", "Solar Power", "Hydropower", "Geothermal Energy"],
+      "correctAnswer": "Solar Power"
+    },
+    {
+      "question": "What is the primary purpose of a composting bin?",
+      "options": ["Storing recyclables", "Producing clean energy", "Breaking down organic waste", "Filtering water pollutants"],
+      "correctAnswer": "Breaking down organic waste"
+    },
+    {
+      "question": "Which gas, released from burning fossil fuels, is a major contributor to global warming?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Methane"],
+      "correctAnswer": "Carbon Dioxide"
+    },
+    {
+      "question": "What is the term for the reduction in the Earth's ozone layer due to human-made chemicals?",
+      "options": ["Global Warming", "Ozone Depletion", "Acid Rain", "Deforestation"],
+      "correctAnswer": "Ozone Depletion"
+    },
+    {
+      "question": "Which of the following is a sustainable practice for agriculture?",
+      "options": ["Monoculture farming", "Genetic modification of crops", "Crop rotation", "Excessive pesticide use"],
+      "correctAnswer": "Crop rotation"
+    },
+    {
+      "question": "What does 'REUSE' emphasize in the context of waste management?",
+      "options": ["Throwing away items", "Recycling plastics", "Using items again", "Composting organic waste"],
+      "correctAnswer": "Using items again"
+    },
+    {
+      "question": "Which international agreement aims to reduce greenhouse gas emissions?",
+      "options": ["Kyoto Protocol", "Paris Agreement", "Montreal Protocol", "Copenhagen Accord"],
+      "correctAnswer": "Paris Agreement"
+    },
+    {
+      "question": "Which of the following is a renewable resource found in the ocean?",
+      "options": ["Natural Gas", "Oil Reserves", "Wave Energy", "Coal Deposits"],
+      "correctAnswer": "Wave Energy"
+    },
+    {
+      "question": "What term describes the process of converting waste materials into reusable materials?",
+      "options": ["Incineration", "Landfilling", "Waste Disposal", "Recycling"],
+      "correctAnswer": "Recycling"
+    }
+  ]
+  
