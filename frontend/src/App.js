@@ -12,7 +12,7 @@ import Statistics from "./containers/Statistics";
 import Visualizations from "./containers/Visualizations";
 import NotFound from "./containers/NotFound";
 import Tour from "./Tour";
-
+import ModelCards from "./components/ModelCards";
 
 function App() {
   return (
@@ -26,7 +26,11 @@ function App() {
         <Route path="/forest-map" element={<ForestMap />} />
         <Route path="/statistics" element={<Statistics />} />
         <Route path="/visualizations" element={<Visualizations />} />
-        <Route path="/models/WaterPotabilityPredictor" element={<WaterPotabilityPredictor />} />
+        <Route
+          path="/model/WaterPotabilityPredictor"
+          element={<WaterPotabilityPredictor />}
+        />
+        <Route path="/models" element={<ModelCards />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

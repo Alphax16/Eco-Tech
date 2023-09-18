@@ -26,7 +26,7 @@ const Links = [
   { name: 'Statistics', path: '/statistics' },
   { name: 'Visualizations', path: '/visualizations' },
   // { name: 'ML Models', path: '/models' },
-  { name: 'ML Models', path: '/models/WaterPotabilityPredictor' },
+  { name: 'ML Models', path: '/models' },
   { name: 'Quiz', path: '/quiz' },
 ];
 
