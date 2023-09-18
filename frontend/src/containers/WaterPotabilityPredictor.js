@@ -1,4 +1,4 @@
-import { Box, Button, Input } from "@chakra-ui/react";
+import { Box, Button, Center, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import { ThreeCircles } from "react-loader-spinner";
@@ -70,55 +70,84 @@ const WaterPotabilityPredictor = () => {
           />
         </div>
       )}
-      <form style={{ width: "40%", color: "#fff" }} onSubmit={handlesubmit}>
-        <Input
-          type="text"
-          placeholder="ph"
-          onChange={(e) => setPh(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Hardness"
-          onChange={(e) => setHardness(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Solids"
-          onChange={(e) => setSolids(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Chloramines"
-          onChange={(e) => setChloramines(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Sulfate"
-          onChange={(e) => setSulfate(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Conductivity"
-          onChange={(e) => setConductivity(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Organic Carbon"
-          onChange={(e) => setOrganic_carbon(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Trihalomethanes"
-          onChange={(e) => setTrihalomethanes(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Turbidity"
-          onChange={(e) => setTurbidity(e.target.value)}
-        />
-        <Button type="submit">Get Predictions</Button>
-      </form>
-      {showResponse && <p>{responseText}</p>}
+      <Center flexDir={"column"}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          Water Potability Prediction
+        </Text>
+        <form style={{ width: "40%", color: "#fff" }} onSubmit={handlesubmit}>
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="ph"
+            required
+            onChange={(e) => setPh(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Hardness"
+            onChange={(e) => setHardness(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Solids"
+            onChange={(e) => setSolids(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            placeholder="Chloramines"
+            color={"#fff"}
+            onChange={(e) => setChloramines(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Sulfate"
+            onChange={(e) => setSulfate(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Conductivity"
+            onChange={(e) => setConductivity(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            placeholder="Organic Carbon"
+            color={"#fff"}
+            onChange={(e) => setOrganic_carbon(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Trihalomethanes"
+            onChange={(e) => setTrihalomethanes(e.target.value)}
+          />
+          <Input
+            my={"2"}
+            type="text"
+            color={"#fff"}
+            placeholder="Turbidity"
+            onChange={(e) => setTurbidity(e.target.value)}
+          />
+          <Button type="submit">Get Predictions</Button>
+        </form>
+        {showResponse && <p>{responseText}</p>}
+      </Center>
     </Box>
   );
 };
