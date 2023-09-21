@@ -86,6 +86,7 @@ const ModelCards = () => {
               animate={{  x: 0 }}
               
               transition={{ duration: 1, origin: 1, delay: 0.3 }}>
+                <Link to="/model/oilSpillPredictor">
       <Box
         maxW={'345px'}
         w={'full'}
@@ -121,6 +122,7 @@ const ModelCards = () => {
         </Stack>
         
       </Box>
+      </Link>
     </MotionCenter>
     <MotionCenter py={6}  initial={{  x: "-70vw" }}
               animate={{  x: 0 }}
