@@ -1,18 +1,57 @@
 import React, { useState } from "react";
+import { Box, Button, Center, Image, Input, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
-import { Box, Button } from "@chakra-ui/react";
-
 
 const OilSpillDetector = () => {
-  const [file, setFile] = useState(null);
-  const [resImgURL, setResImgURL] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
+  const [file, setSelectedFile] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [resImgURL, setResImgURL] = useState('');
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+  const openModal = () => {
+    setIsOpen(true);
   };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleUpload = () => {
+    if (file) {
+      handleSubmit();
+      closeModal();
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    setSelectedFile(file);
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const chooseImageButtonClick = () => {
+    document.getElementById("fileInput").click();
+  };
+
+  const handleSubmit = async () => {
     const formData = new FormData();
     formData.append("file", file);
 
@@ -28,28 +67,73 @@ const OilSpillDetector = () => {
       );
       console.log("File uploaded:", response.data);
       alert(response.data.success);
-      setResImgURL(response.data);
+      
+      setResImgURL(response.data.url);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
   };
 
   return (
-    <Box p={"16"}>
-      <form onSubmit={handleSubmit}>
-        {!file ? <span>Upload a file</span> : file.name}
-        <input
-          id="file-upload"
-          name="file-upload"
-          type="file"
-          onChange={handleFileChange}
-        />
-        <Button type="submit">Upload</Button>
-      </form>
-      {
-        resImgURL &&
-        (<img src={resImgURL} alt='No Response-Img' />)
-      }
+    <Box p={32} h="100vh" bg="#12504B" color="#fff">
+      <Center>
+        <Flex direction="column" align="center">
+          <Box
+            w="300px"
+            h={{ base: "150px", lg: "250px" }}
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
+            mt={4} // Add margin-top to create spacing
+          >
+            {imagePreview ? (
+              <Image maxW="100%" maxH="100%" src={imagePreview} alt="Preview" />
+            ) : (
+              <>
+                <img src="/assets/Dropboxlogo.png" alt="No-Img" />
+                <Text textAlign="center" mt={2}> {/* Adjust the margin-top */}
+                  Drag and drop your image here
+                </Text>
+              </>
+            )}
+          </Box>
+          <Text textAlign="center" mt={2}>Or</Text> {/* Adjust the margin-top */}
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            id="fileInput"
+            display="none"
+          />
+          {imagePreview ? (
+            <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
+              Choose Again
+            </Button>
+          ) : (
+            <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
+              Choose Image
+            </Button>
+          )}
+          {file && (
+            <div>
+              <p style={{ textAlign: "center", margin: "2rem 0" }}> {/* Adjust the margin */}
+                Selected Image: {file.name}
+              </p>
+              <Button
+                colorScheme="teal"
+                onClick={handleUpload}
+                style={{ display: "block", margin: "0 auto" }}
+              >
+                Upload
+              </Button>
+            </div>
+          )}
+          {resImgURL && (
+            <div>
+              <img src={resImgURL} alt="No Response-Img" style={{ margin: "2rem auto" }} /> {/* Adjust the margin */}
+            </div>
+          )}
+        </Flex>
+      </Center>
     </Box>
   );
 };

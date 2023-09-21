@@ -43,8 +43,7 @@ const oilSpillDetector = async (req, res) => {
     const result = await runPythonScript(scriptPath, cmdLineArgs);
     console.log('Script Response:', result);
 
-    // res.status(200).json({ success: "Uploaded successfully" });
-    res.send(result);
+    res.status(200).json({ success: "Uploaded successfully!", url: result });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error uploading file" });
