@@ -77,7 +77,16 @@ const OilSpillPredictor = () => {
   };
 
   return (
-    <Box p={"32"} h={"100vh"} bg={"#12504B"} color={"#fff"}>
+    <Box p={"16"} h={"100vh"} bg={"#12504B"} color={"#fff"}>
+      <Text
+        fontSize={{ base: "xl", lg: "4xl" }}
+        fontWeight={"bold"}
+        my={"4"}
+        textAlign={"center"}
+        color={"#fff"}
+      >
+        Water Potability Prediction
+      </Text>
       <Box bg={"white.200"} height={"max-content"}>
         <Center>
           <Box
