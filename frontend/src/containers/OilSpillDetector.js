@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Box, Button } from "@chakra-ui/react";
-const OilSpillPredictor = () => {
+
+
+const OilSpillDetector = () => {
   const [file, setFile] = useState(null);
+  const [resImgURL, setResImgURL] = useState("");
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -15,7 +18,7 @@ const OilSpillPredictor = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/oilSpillPredictor",
+        "http://localhost:5000/api/ai/oil-spill-detector",
         formData,
         {
           headers: {
@@ -25,6 +28,7 @@ const OilSpillPredictor = () => {
       );
       console.log("File uploaded:", response.data);
       alert(response.data.success);
+      setResImgURL(response.data);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
@@ -42,8 +46,12 @@ const OilSpillPredictor = () => {
         />
         <Button type="submit">Upload</Button>
       </form>
+      {
+        resImgURL &&
+        (<img src={resImgURL} alt='No Response-Img' />)
+      }
     </Box>
   );
 };
 
-export default OilSpillPredictor;
+export default OilSpillDetector;

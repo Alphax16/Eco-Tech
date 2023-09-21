@@ -22,6 +22,7 @@ import {
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom';
 
+
 const MotionCenter = motion(Center);
 
 
@@ -43,7 +44,7 @@ const ModelCards = () => {
               animate={{  x: 0 }}
               
               transition={{ duration: 1, origin: 1, delay: 0.3 }}>
-                <Link to="/model/WaterPotabilityPredictor">
+                <Link to="/models/water-potability-predictor">
       <Box
         maxW={'345px'}
         w={'full'}
@@ -56,13 +57,29 @@ const ModelCards = () => {
         <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
             src={
-              'assets/waterpollution.jpg'
+              "assets/WaterPollution.jpg"
             }
-            
+            width={'345px'}
+            height={'230px'}
             alt="Example"
           />
         </Box>
         <Stack>
+        
+          <Heading
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            color={useColorModeValue('gray.700', 'white')}
+            fontSize={'2xl'}
+            fontFamily={'body'}>
+            Water Potability Prediction
+          </Heading>
+          <Text color={'gray.500'}>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+          </Text>
+        </Stack>
+        {/* <Stack>
          
           <Heading
           
@@ -77,7 +94,7 @@ const ModelCards = () => {
             eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
             voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
           </Text>
-        </Stack>
+        </Stack> */}
        
       </Box>
       </Link>
@@ -86,7 +103,7 @@ const ModelCards = () => {
               animate={{  x: 0 }}
               
               transition={{ duration: 1, origin: 1, delay: 0.3 }}>
-                <Link to="/model/oilSpillPredictor">
+                <Link to="/models/oil-spill-detector">
       <Box
         maxW={'345px'}
         w={'full'}
@@ -98,9 +115,7 @@ const ModelCards = () => {
         overflow={'hidden'}>
         <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
-            src={
-              'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-            }
+            src="assets/OilSpill.jpg"
             fill
             alt="Example"
           />
@@ -112,7 +127,7 @@ const ModelCards = () => {
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
             fontFamily={'body'}>
-            Boost your conversion rate
+            Oil Spill Detection
           </Heading>
           <Text color={'gray.500'}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy

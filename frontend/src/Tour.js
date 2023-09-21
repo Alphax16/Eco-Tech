@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Joyride from "react-joyride";
 import { useNavigate } from "react-router-dom";
 import { useTour } from "./context/TourContext";
+
+
 function Tour() {
   const [runTour, setRunTour] = useState(false);
   const navigate = useNavigate();

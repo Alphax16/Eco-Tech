@@ -7,14 +7,15 @@ import Quiz from "./containers/Quiz";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ForestMap from "./containers/ForestMap";
-import WaterPotabilityPredictor from "./containers/WaterPotabilityPredictor";
 import Statistics from "./containers/Statistics";
 import Visualizations from "./containers/Visualizations";
 import NotFound from "./containers/NotFound";
 import Tour from "./Tour";
 import ModelCards from "./components/ModelCards";
 import { TourProvider } from "./context/TourContext";
-import OilSpillPredictor from "./containers/OilSpillPredictor";
+import WaterPotabilityPredictor from "./containers/WaterPotabilityPredictor";
+import OilSpillDetector from "./containers/OilSpillDetector";
+
 
 function App() {
   return (
@@ -28,12 +29,10 @@ function App() {
           <Route path="/forest-map" element={<ForestMap />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/visualizations" element={<Visualizations />} />
-          <Route
-            path="/model/WaterPotabilityPredictor"
-            element={<WaterPotabilityPredictor />}
-          />
+          
           <Route path="/models" element={<ModelCards />} />
-          <Route path="/model/oilSpillPredictor" element={<OilSpillPredictor />} />
+          <Route path="/models/water-potability-predictor" element={<WaterPotabilityPredictor />} />
+          <Route path="/models/oil-spill-detector" element={<OilSpillDetector />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
