@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Joyride from "react-joyride";
 import { useNavigate } from "react-router-dom";
-
+import { useTour } from "./context/TourContext";
 function Tour() {
   const [runTour, setRunTour] = useState(false);
   const navigate = useNavigate();
+  const { startTour } = useTour();
 
   const tourSteps = [
     // Define steps
@@ -22,11 +23,18 @@ function Tour() {
     //   placement: "bottom",
     // },
   ];
-  useEffect(() => {
-    if (window.location.pathname === "/") {
-      setRunTour(true);
-    }
-  }, []);
+
+  // useEffect(() => {
+  //   if (startTour) {
+  //     setRunTour(true);
+  //   }
+  // }, [startTour]);
+
+  // useEffect(() => {
+  //   if (window.location.pathname === "/") {
+  //     setRunTour(true);
+  //   }
+  // }, []);
 
   // Handle the tour finish event
   const handleTourFinish = () => {
@@ -36,7 +44,7 @@ function Tour() {
   return (
     <Joyride
       steps={tourSteps}
-      run={runTour}
+      run={startTour}
       continuous={true}
       showProgress={true}
       showSkipButton={true}

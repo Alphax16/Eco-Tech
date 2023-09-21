@@ -13,28 +13,31 @@ import Visualizations from "./containers/Visualizations";
 import NotFound from "./containers/NotFound";
 import Tour from "./Tour";
 import ModelCards from "./components/ModelCards";
+import { TourProvider } from "./context/TourContext";
+import OilSpillPredictor from "./containers/OilSpillPredictor";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <TourProvider>
+        <Tour />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/forest-map" element={<ForestMap />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/visualizations" element={<Visualizations />} />
+          <Route
+            path="/model/WaterPotabilityPredictor"
+            element={<WaterPotabilityPredictor />}
+          />
+          <Route path="/models" element={<ModelCards />} />
+          <Route path="/model/oilSpillPredictor" element={<OilSpillPredictor />} />
 
-      <Tour />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/forest-map" element={<ForestMap />} />
-        <Route path="/statistics" element={<Statistics />} />
-        <Route path="/visualizations" element={<Visualizations />} />
-        <Route
-          path="/model/WaterPotabilityPredictor"
-          element={<WaterPotabilityPredictor />}
-        />
-        <Route path="/models" element={<ModelCards />} />
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TourProvider>
       <Footer />
     </Router>
   );
