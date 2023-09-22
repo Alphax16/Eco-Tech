@@ -19,15 +19,19 @@ import {
 
 } from '@chakra-ui/react'
 
-import { motion } from 'framer-motion'
+import { motion,useInView } from 'framer-motion'
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const MotionCenter = motion(Center);
 
 
 const ModelCards = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <Box py={'16'}>
+    <Box py={'16'} ref={ref}>
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading py={'4'} fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
           ML Models
@@ -40,7 +44,7 @@ const ModelCards = () => {
       <Container maxW={'90%'} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">
         <MotionCenter py={6}  initial={{  x: "-70vw" }}
-              animate={{  x: 0 }}
+              animate={{   x: isInView?"0":'none' }}
               
               transition={{ duration: 1, origin: 1, delay: 0.3 }}>
                 <Link to="/model/WaterPotabilityPredictor">

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import axios from "axios";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Center, Text, VStack } from "@chakra-ui/react";
 import {
   FormControl,
   FormLabel,
@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { Marker, Popup } from "react-leaflet";
 // import Marker from "../components/Marker";
-import LocIcon from "../assets/LocIcon.png";
+
 import "leaflet/dist/leaflet.css";
 
 const ForestMap = () => {
@@ -71,68 +71,78 @@ const ForestMap = () => {
   }, []);
 
   const customIcon = L.icon({
-    iconUrl: LocIcon,
+    iconUrl: "assets/LocIcon.png",
     iconSize: [32, 32],
   });
 
   return (
-    <div id="map">
+    <Box id="map">
       <VStack
         justifyContent="center"
         alignItems="center"
         minH="100vh"
-        w="100vw"
         spacing={4}
         bg="#12504B"
         py={"16"}
       >
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          textAlign={"center"}
+          color={"#fff"}
+        >
+          Tree In Enviornment
+        </Text>
         <Box p={4} color="#fff">
-          <FormControl>
-            <FormLabel htmlFor="yearSelect">Select a Year:</FormLabel>
-            <Popover
-              isOpen={isYearSelectorOpen}
-              onClose={toggleYearSelector}
-              placement="bottom-start"
-            >
-              <PopoverTrigger>
-                <Button
-                  id="yearSelect"
-                  variant="outline"
-                  bg="teal.200"
-                  onClick={toggleYearSelector}
-                  zIndex={1}
-                >
-                  {selectedYear || "Select a Year"}
-                </Button>
-              </PopoverTrigger>
+          <Center>
+            <FormControl>
+              <FormLabel htmlFor="yearSelect">Select a Year:</FormLabel>
+              <Popover
+                isOpen={isYearSelectorOpen}
+                onClose={toggleYearSelector}
+                placement="bottom-start"
+              >
+                <PopoverTrigger>
+                  <Button
+                    id="yearSelect"
+                    variant="outline"
+                    bg="teal.200"
+                    onClick={toggleYearSelector}
+                    zIndex={1}
+                  >
+                    {selectedYear || "Select a Year"}
+                  </Button>
+                </PopoverTrigger>
 
-              <PopoverContent zIndex={12}>
-                <PopoverBody>
-                  <VStack spacing={2}>
-                    {
-                      // Array.from({ length: 2023 - 1987 + 1 }, (_, index) => 1987 + index)
-                      [
-                        1987, 1989, 1991, 1993, 1995, 1997, 1999, 2001, 2003,
-                        2005, 2007, 2011, 2013,
-                      ].map((year) => (
-                        <Button
-                          key={year}
-                          variant="ghost"
-                          onClick={() => selectYear(year)}
-                          isActive={year === selectedYear}
-                        >
-                          {year}
-                        </Button>
-                      ))
-                    }
-                  </VStack>
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
-          </FormControl>
+                <PopoverContent zIndex={12}>
+                  <PopoverBody>
+                    <VStack spacing={2}>
+                      {
+                        // Array.from({ length: 2023 - 1987 + 1 }, (_, index) => 1987 + index)
+                        [
+                          1987, 1989, 1991, 1993, 1995, 1997, 1999, 2001, 2003,
+                          2005, 2007, 2011, 2013,
+                        ].map((year) => (
+                          <Button
+                            key={year}
+                            variant="ghost"
+                            onClick={() => selectYear(year)}
+                            isActive={year === selectedYear}
+                          >
+                            {year}
+                          </Button>
+                        ))
+                      }
+                    </VStack>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+            </FormControl>
+          </Center>
         </Box>
 
-        <Box w="100%" h="500px">
+        <Box w="98%" h="600px" zIndex={"1"}>
           <MapContainer
             center={[20.5937, 78.9629]}
             zoom={5}
@@ -166,7 +176,7 @@ const ForestMap = () => {
           </MapContainer>
         </Box>
       </VStack>
-    </div>
+    </Box>
   );
 };
 
