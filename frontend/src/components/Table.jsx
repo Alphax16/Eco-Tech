@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTable, useSortBy, useFilters, useGlobalFilter } from 'react-table';
-import { Box, Input, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+import { Box, Input, Table, Spinner,Thead, Tbody, Tr, Th, Td, Center } from '@chakra-ui/react';
 
 
 function ExcelTable({ data }) {
@@ -34,13 +34,18 @@ function ExcelTable({ data }) {
 
   return (
     <Box>
+      <Center>
       <Input
         value={globalFilter || ''}
         onChange={(e) => setGlobalFilter(e.target.value)}
         placeholder="Search..."
-        mb={4}
+        width={'70%'}
+        my={6}
       />
-      <Table {...getTableProps()} variant="simple">
+      </Center>
+      <Center>
+        {data.length!=0? 
+      <Table {...getTableProps()} variant="simple" w="97%">
         <Thead>
           {headerGroups.map((headerGroup) => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
@@ -84,7 +89,15 @@ function ExcelTable({ data }) {
             );
           })}
         </Tbody>
-      </Table>
+      </Table>:
+      <Spinner
+      thickness='4px'
+      speed='0.65s'
+      emptyColor='gray.200'
+      color='#C1E836'
+      size='xl'
+    />}
+      </Center>
     </Box>
   );
 }
