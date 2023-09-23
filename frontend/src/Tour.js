@@ -11,6 +11,7 @@ function Tour() {
 
   const tourSteps = [
     // Define steps
+
     {
       target: ".navbox",
       content: "This tab contains all features of the webapp",

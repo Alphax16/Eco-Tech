@@ -19,7 +19,8 @@ import {
 
 } from '@chakra-ui/react'
 
-import { motion } from 'framer-motion'
+import { motion,useInView } from 'framer-motion'
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -27,8 +28,11 @@ const MotionCenter = motion(Center);
 
 
 const ModelCards = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <Box py={'16'}>
+    <Box py={'16'} ref={ref}>
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading py={'4'} fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
           ML Models
@@ -41,7 +45,7 @@ const ModelCards = () => {
       <Container maxW={'90%'} mt={12}>
         <Flex flexWrap="wrap" gridGap={6} justify="center">
         <MotionCenter py={6}  initial={{  x: "-70vw" }}
-              animate={{  x: 0 }}
+              animate={{   x: isInView?"0":'none' }}
               
               transition={{ duration: 1, origin: 1, delay: 0.3 }}>
                 <Link to="/models/water-potability-predictor">
@@ -54,7 +58,7 @@ const ModelCards = () => {
         rounded={'md'}
         p={6}
         overflow={'hidden'}>
-        <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
+        <Box h={'210px'}   overflow={'hidden'} bg={'gray.100'} mt={-6} mx={-6} mb={6} display={'block'}>
           <Image
             src={
               "assets/WaterPollution.jpg"
@@ -84,7 +88,8 @@ const ModelCards = () => {
           <Heading
           
           
-            color={useColorModeValue('gray.700', 'white')}
+          color={useColorModeValue('gray.700', 'white')}
+
             fontSize={'2xl'}
             fontFamily={'body'}>
            Water Potability Predictor
@@ -113,7 +118,7 @@ const ModelCards = () => {
         rounded={'md'}
         p={6}
         overflow={'hidden'}>
-        <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
+        <Box h={'210px'}   overflow={'hidden'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
             src="assets/OilSpill.jpg"
             fill

@@ -15,6 +15,7 @@ import {
   AlertDialogFooter,
   useDisclosure,
   Image,
+  Heading,
 } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 
@@ -92,9 +93,13 @@ function Quiz() {
 
       <Box pt={{ base: "15%", lg: "6%" }}>
         <Center display={"flex"} flexDir={"column"}>
-          <Text fontSize={"3xl"} color={"#fff"}>
+          <Heading
+            py={"4"}
+            fontSize={{ base: "2xl", sm: "4xl" }}
+            fontWeight={"bold"}
+          >
             ECO QUIZ
-          </Text>
+          </Heading>
           {currentIndex < questions.length && (
             <Box borderRadius={"xl"} w={"70%"} my="10" bg={"green.100"} p={"3"}>
               <Text
