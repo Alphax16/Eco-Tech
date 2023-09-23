@@ -25,86 +25,10 @@ const Footer = ()=> {
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container as={Stack} maxW={'6xl'} py={10} textAlign={'center'}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8} >
-          <Stack align={'center'}>
-            <ListHeader>Product</ListHeader>
-            <Box as="a" href={'#'}>
-              Overview
-            </Box>
-            <Stack direction={'row'} align={'center'} spacing={2}>
-              <Box as="a" href={'#'}>
-                Features
-              </Box>
-      
-            </Stack>
-            <Box as="a" href={'#'}>
-              Tutorials
-            </Box>
-            <Box as="a" href={'#'}>
-              Pricing
-            </Box>
-            <Box as="a" href={'#'}>
-              Releases
-            </Box>
-          </Stack>
-          <Stack align={'center'}>
-            <ListHeader>Company</ListHeader>
-            <Box as="a" href={'#'}>
-              About Us
-            </Box>
-            <Box as="a" href={'#'}>
-              Press
-            </Box>
-            <Box as="a" href={'#'}>
-              Careers
-            </Box>
-            <Box as="a" href={'#'}>
-              Contact Us
-            </Box>
-            <Box as="a" href={'#'}>
-              Partners
-            </Box>
-          </Stack>
-          <Stack align={'center'}>
-            <ListHeader>Legal</ListHeader>
-            <Box as="a" href={'#'}>
-              Cookies Policy
-            </Box>
-            <Box as="a" href={'#'}>
-              Privacy Policy
-            </Box>
-            <Box as="a" href={'#'}>
-              Terms of Service
-            </Box>
-            <Box as="a" href={'#'}>
-              Law Enforcement
-            </Box>
-            <Box as="a" href={'#'}>
-              Status
-            </Box>
-          </Stack>
-          <Stack align={'center'}>
-            <ListHeader>Follow Us</ListHeader>
-            <Box as="a" href={'#'}>
-              Facebook
-            </Box>
-            <Box as="a" href={'#'}>
-              Twitter
-            </Box>
-            <Box as="a" href={'#'}>
-              Dribbble
-            </Box>
-            <Box as="a" href={'#'}>
-              Instagram
-            </Box>
-            <Box as="a" href={'#'}>
-              LinkedIn
-            </Box>
-          </Stack>
-        </SimpleGrid>
-      </Container>
-      <Box py={10}>
+      <Container as={Stack} maxW={'6xl'} p={'2.5'} textAlign={'center'}>
+        
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} >
+        <Box marginTop={10}>
         <Flex
           align={'center'}
           _before={{
@@ -128,6 +52,84 @@ const Footer = ()=> {
         © 2023 Amigos. All rights reserved
         </Text>
       </Box>
+          <Stack align={'center'}>
+            <ListHeader>Product</ListHeader>
+            <Box as="a" href={'#'}>
+              Overview
+            </Box>
+            <Stack direction={'row'} align={'center'} spacing={2}>
+              <Box as="a" href={'#'}>
+                Features
+              </Box>
+      
+            </Stack>
+            <Box as="a" href={'#'}>
+              Tutorials
+            </Box>
+            <Box as="a" href={'#'}>
+              Pricing
+            </Box>
+            <Box as="a" href={'#'}>
+              Releases
+            </Box>
+          </Stack>
+          {/* <Stack align={'center'}>
+            <ListHeader>Company</ListHeader>
+            <Box as="a" href={'#'}>
+              About Us
+            </Box>
+            <Box as="a" href={'#'}>
+              Press
+            </Box>
+            <Box as="a" href={'#'}>
+              Careers
+            </Box>
+            <Box as="a" href={'#'}>
+              Contact Us
+            </Box>
+            <Box as="a" href={'#'}>
+              Partners
+            </Box>
+          </Stack> */}
+          {/* <Stack align={'center'}>
+            <ListHeader>Legal</ListHeader>
+            <Box as="a" href={'#'}>
+              Cookies Policy
+            </Box>
+            <Box as="a" href={'#'}>
+              Privacy Policy
+            </Box>
+            <Box as="a" href={'#'}>
+              Terms of Service
+            </Box>
+            <Box as="a" href={'#'}>
+              Law Enforcement
+            </Box>
+            <Box as="a" href={'#'}>
+              Status
+            </Box>
+          </Stack> */}
+          <Stack align={'center'}>
+            <ListHeader>Follow Us</ListHeader>
+            <Box as="a" href={'#'}>
+              Facebook
+            </Box>
+            <Box as="a" href={'#'}>
+              Twitter
+            </Box>
+            <Box as="a" href={'#'}>
+              Dribbble
+            </Box>
+            <Box as="a" href={'#'}>
+              Instagram
+            </Box>
+            <Box as="a" href={'#'}>
+              LinkedIn
+            </Box>
+          </Stack>
+        </SimpleGrid>
+      </Container>
+    
     </Box>
   )
 }

@@ -61,7 +61,7 @@ const ModelCards = () => {
         <Box h={'210px'}   overflow={'hidden'} bg={'gray.100'} mt={-6} mx={-6} mb={6} display={'block'}>
           <Image
             src={
-              "assets/WaterPollution.jpg"
+              "assets/waterpollution.jpg"
             }
             width={'345px'}
             height={'230px'}
@@ -74,6 +74,7 @@ const ModelCards = () => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
+            width={'110%'}
             fontFamily={'body'}>
             Water Potability Prediction
           </Heading>
