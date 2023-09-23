@@ -25,8 +25,8 @@ const Links = [
   { name: 'Maps', path: '/forest-map' },
   { name: 'Statistics', path: '/statistics' },
   { name: 'Visualizations', path: '/visualizations' },
-  // { name: 'ML Models', path: '/models' },
-  { name: 'ML Models', path: '/models' },
+  
+  { name: 'AI Models', path: '/models' },
   { name: 'Quiz', path: '/quiz' },
 ];
 
