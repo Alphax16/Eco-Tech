@@ -56,7 +56,7 @@ function Quiz() {
 
     setSelectedOption(null);
 
-    if (currentIndex < questions.length - 1) {
+    if (currentIndex < 10 - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
       showAlertDialog();
@@ -72,14 +72,14 @@ function Quiz() {
           <AlertDialogContent>
             <AlertDialogHeader>Message</AlertDialogHeader>
             <AlertDialogBody>
-              Your Score: {score}/{questions.length}
+              Your Score: {score}/{10}
               {score < 4 ? (
                 <Box>
-                  You are very Weak :0
+                  You are very Weak
                   {/* <Image src="assets/cursor.gif" /> */}
                 </Box>
               ) : (
-                <Box>You are very strong :7</Box>
+                <Box>You are very strong </Box>
               )}
             </AlertDialogBody>
             <AlertDialogFooter>
@@ -100,7 +100,7 @@ function Quiz() {
           >
             ECO QUIZ
           </Heading>
-          {currentIndex < questions.length && (
+          {currentIndex < 10 && (
             <Box borderRadius={"xl"} w={"70%"} my="10" bg={"green.100"} p={"3"}>
               <Text
                 borderRadius={"xl"}
