@@ -2,8 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import axios from "axios";
-import { Box, Center, Text, VStack } from "@chakra-ui/react";
 import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  VStack,
   FormControl,
   FormLabel,
   Popover,
@@ -12,6 +16,7 @@ import {
   PopoverTrigger,
   Button,
 } from "@chakra-ui/react";
+
 import { Marker, Popup } from "react-leaflet";
 // import Marker from "../components/Marker";
 
@@ -76,28 +81,27 @@ const ForestMap = () => {
   });
 
   return (
-    <Box id="map">
+    <Box id="map" minH="100vh" spacing={4} bg="#12504B" py={"16"}>
+      <Heading
+        py={"6"}
+        color={"#fff"}
+        textAlign={"center"}
+        fontSize={{ base: "2xl", sm: "4xl" }}
+        fontWeight={"bold"}
+      >
+        Tree In Enviornment
+      </Heading>
       <VStack
         justifyContent="center"
-        alignItems="center"
-        minH="100vh"
-        spacing={4}
-        bg="#12504B"
-        py={"16"}
+        alignItems="flex-start"
+        flexDir={{ base: "column", lg: "row" }}
       >
-        <Text
-          fontSize={{ base: "xl", lg: "4xl" }}
-          fontWeight={"bold"}
-          my={"4"}
-          textAlign={"center"}
-          color={"#fff"}
-        >
-          Tree In Enviornment
-        </Text>
-        <Box p={4} color="#fff">
+        <Box color="#fff" width={"30%"}>
           <Center>
-            <FormControl>
-              <FormLabel htmlFor="yearSelect">Select a Year:</FormLabel>
+            <FormControl width={"50%"} textAlign={"center"}>
+              <Text mt={"-20px"} py={"6"}>
+                Select a Year:
+              </Text>
               <Popover
                 isOpen={isYearSelectorOpen}
                 onClose={toggleYearSelector}
@@ -115,9 +119,9 @@ const ForestMap = () => {
                   </Button>
                 </PopoverTrigger>
 
-                <PopoverContent zIndex={12}>
+                <PopoverContent zIndex={12} width={"12rem"}>
                   <PopoverBody>
-                    <VStack spacing={2}>
+                    <VStack spacing={1}>
                       {
                         // Array.from({ length: 2023 - 1987 + 1 }, (_, index) => 1987 + index)
                         [
@@ -142,7 +146,7 @@ const ForestMap = () => {
           </Center>
         </Box>
 
-        <Box w="98%" h="600px" zIndex={"1"}>
+        <Box w="65%" h="600px" zIndex={"1"}>
           <MapContainer
             center={[20.5937, 78.9629]}
             zoom={5}
