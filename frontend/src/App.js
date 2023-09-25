@@ -11,12 +11,13 @@ import { TourProvider } from "./context/TourContext";
 
 import Home from "./containers/Home";
 import ForestMap from "./containers/ForestMap";
-import Statistics from "./containers/Statistics";
+import Statistics from "./components/StatCards";
 import Visualizations from "./containers/Visualizations";
 import Quiz from "./containers/Quiz";
 import NotFound from "./containers/NotFound";
 
 import AI_Model_Routes from "./AI_Model_Routes";
+import StatCards from "./components/StatCards";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/forest-map" element={<ForestMap />} />
-          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/statistics" element={<StatCards />} />
           <Route path="/visualizations" element={<Visualizations />} />
           <Route path="/models/*" element={<AI_Model_Routes />} />
           <Route path="/quiz" element={<Quiz />} />
