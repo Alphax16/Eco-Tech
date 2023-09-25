@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Box, Button, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
-import AudioVisualizer from "../components/AudioVisualizer";
+import AudioVisualizer from "../../components/AudioVisualizer";
 
 
 const NoisePollutionDetector = () => {

@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
 import ModelCards from "./components/ModelCards";
-import WaterPotabilityPredictor from "./containers/WaterPotabilityPredictor";
-import OilSpillDetector from "./containers/OilSpillDetector";
-import NoisePollutionDetector from "./containers/NoisePollutionDetector";
+import WaterPotabilityPredictor from "./containers/AI Models/WaterPotabilityPredictor";
+import OilSpillDetector from "./containers/AI Models/OilSpillDetector";
+import NoisePollutionDetector from "./containers/AI Models/NoisePollutionDetector";
 
 
 function AI_Model_Routes() {
