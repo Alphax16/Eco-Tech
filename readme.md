@@ -1,1 +1,1 @@
-The project is made using MERN stack.
+The project is made using MERN stack and python.

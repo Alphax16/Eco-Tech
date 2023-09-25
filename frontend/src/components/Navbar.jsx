@@ -6,13 +6,13 @@ import { useEffect, useState, useRef } from "react";
 
 
 const Links = [
-    { name: "Home", path: "/" }, // Define routes and names
-    { name: "Maps", path: "/forest-map" },
-    { name: "Statistics", path: "/statistics" },
-    { name: "Visualizations", path: "/visualizations" },
-    // { name: 'ML Models', path: '/models' },
-    { name: "ML Models", path: "/models" },
-    { name: "Quiz", path: "/quiz" },
+  { name: 'Home', path: '/' }, // Define routes and names
+  { name: 'Maps', path: '/forest-map' },
+  { name: 'Statistics', path: '/statistics' },
+  { name: 'Visualizations', path: '/visualizations' },
+  
+  { name: 'AI Models', path: '/models' },
+  { name: 'Quiz', path: '/quiz' },
 ];
 
 const Navbar = () => {

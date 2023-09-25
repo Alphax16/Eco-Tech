@@ -28,7 +28,7 @@ const ForestMap = () => {
   const [treeStats, setTreeStats] = useState([]);
 
   const [selectedYear, setSelectedYear] = useState(null);
-  const [isYearSelectorOpen, setIsYearSelectorOpen] = useState(false);
+  const [isYearSelectorOpen, setIsYearSelectorOpen] = useState(true);
 
   const mapStyle = {
     weight: 1.5,
@@ -50,13 +50,13 @@ const ForestMap = () => {
     fetchData();
   }, []);
 
-  const toggleYearSelector = () => {
-    setIsYearSelectorOpen(!isYearSelectorOpen);
-  };
+  // const toggleYearSelector = () => {
+  //   setIsYearSelectorOpen(!isYearSelectorOpen);
+  // };
 
   const selectYear = (year) => {
     setSelectedYear(year);
-    setIsYearSelectorOpen(false);
+    // setIsYearSelectorOpen(false);
   };
 
   useEffect(() => {
@@ -104,11 +104,11 @@ const ForestMap = () => {
               </Text>
               <Popover
                 isOpen={isYearSelectorOpen}
-                onClose={toggleYearSelector}
+                // onClose={toggleYearSelector}
                 placement="bottom-start"
               >
-                <PopoverTrigger>
-                  <Button
+                {/* <PopoverTrigger> */}
+                {/* <Button
                     id="yearSelect"
                     variant="outline"
                     bg="teal.200"
@@ -116,8 +116,8 @@ const ForestMap = () => {
                     zIndex={1}
                   >
                     {selectedYear || "Select a Year"}
-                  </Button>
-                </PopoverTrigger>
+                  </Button> */}
+                {/* </PopoverTrigger> */}
 
                 <PopoverContent zIndex={12} width={"12rem"}>
                   <PopoverBody>

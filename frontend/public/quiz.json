@@ -48,6 +48,185 @@
       "question": "What term describes the process of converting waste materials into reusable materials?",
       "options": ["Incineration", "Landfilling", "Waste Disposal", "Recycling"],
       "correctAnswer": "Recycling"
-    }
+    },
+    {
+      "question": "What is the term for the natural process by which water is purified as it moves through layers of soil and rock?",
+      "options": ["Desalination", "Filtration", "Evaporation", "Condensation"],
+      "correctAnswer": "Filtration"
+    },
+    {
+      "question": "Which of the following is a non-renewable source of energy?",
+      "options": ["Wind", "Solar", "Fossil fuels", "Geothermal"],
+      "correctAnswer": "Fossil fuels"
+    },
+    {
+      "question": "What is the primary cause of coral bleaching in coral reefs?",
+      "options": ["Pollution", "Overfishing", "Rising sea temperatures", "Algae growth"],
+      "correctAnswer": "Rising sea temperatures"
+    },
+    {
+      "question": "Which gas is most responsible for the greenhouse effect and global warming?",
+      "options": ["Oxygen (O2)", "Nitrogen (N2)", "Carbon dioxide (CO2)", "Hydrogen (H2)"],
+      "correctAnswer": "Carbon dioxide (CO2)"
+    },
+    {
+      "question": "What is the largest rainforest in the world?",
+      "options": ["Amazon Rainforest", "Congo Rainforest", "Borneo Rainforest", "Taiga"],
+      "correctAnswer": "Amazon Rainforest"
+    },
+    {
+      "question": "Which of the following is a natural greenhouse gas found in the Earth's atmosphere?",
+      "options": ["Methane (CH4)", "Oxygen (O2)", "Hydrogen (H2)", "Nitrogen (N2)"],
+      "correctAnswer": "Methane (CH4)"
+    },
+    {
+      "question": "What is the process by which plants convert sunlight into chemical energy?",
+      "options": ["Photosynthesis", "Respiration", "Transpiration", "Germination"],
+      "correctAnswer": "Photosynthesis"
+    },
+    {
+      "question": "Which of the following is NOT a form of renewable energy?",
+      "options": ["Solar power", "Hydropower", "Nuclear power", "Wind power"],
+      "correctAnswer": "Nuclear power"
+    },
+    {
+      "question": "What is the term for the gradual wearing away of the Earth's surface by natural processes?",
+      "options": ["Erosion", "Pollution", "Deforestation", "Desertification"],
+      "correctAnswer": "Erosion"
+    },
+    {
+      "question": "What is the primary cause of ocean acidification?",
+      "options": ["Plastic pollution", "Carbon dioxide (CO2) absorption", "Overfishing", "Tsunamis"],
+      "correctAnswer": "Carbon dioxide (CO2) absorption"
+    },
+    {
+      "question": "Which gas is produced by rotting organic matter in landfills and contributes to climate change?",
+      "options": ["Carbon dioxide (CO2)", "Oxygen (O2)", "Methane (CH4)", "Nitrous oxide (N2O)"],
+      "correctAnswer": "Methane (CH4)"
+    },
+    {
+      "question": "What is the term for the loss of a species from a particular habitat or from the entire planet?",
+      "options": ["Adaptation", "Extinction", "Mutation", "Migration"],
+      "correctAnswer": "Extinction"
+    },
+    {
+      "question": "Which of the following is a type of renewable energy that captures energy from the Earth's internal heat?",
+      "options": ["Solar power", "Wind power", "Geothermal power", "Biomass power"],
+      "correctAnswer": "Geothermal power"
+    },
+    {
+      "question": "What is the main cause of soil erosion in agricultural areas?",
+      "options": ["Deforestation", "Pesticide use", "Crop rotation", "Overgrazing"],
+      "correctAnswer": "Overgrazing"
+    },
+    {
+      "question": "What is the term for the gradual rise in the Earth's average temperature due to human activities?",
+      "options": ["Climate change", "Global warming", "Greenhouse effect", "Ozone depletion"],
+      "correctAnswer": "Global warming"
+    },
+    
+      {
+        "question": "What does the term 'biodiversity conservation' refer to?",
+        "options": [
+          "Protecting a single species from extinction",
+          "Conserving the variety of life on Earth, including ecosystems and species",
+          "Managing forests for timber production",
+          "Capturing and relocating endangered animals"
+        ],
+        "correctAnswer": "Conserving the variety of life on Earth, including ecosystems and species"
+      },
+      {
+        "question": "Which of the following is a key strategy for conserving freshwater resources?",
+        "options": [
+          "Building more dams",
+          "Reducing water reuse and recycling",
+          "Implementing water conservation measures",
+          "Increasing industrial water consumption"
+        ],
+        "correctAnswer": "Implementing water conservation measures"
+      },
+      {
+        "question": "What is the primary goal of wildlife conservation?",
+        "options": [
+          "To capture and relocate animals to new habitats",
+          "To maximize hunting and fishing opportunities",
+          "To protect and preserve wild animal populations and their habitats",
+          "To breed and domesticate endangered species"
+        ],
+        "correctAnswer": "To protect and preserve wild animal populations and their habitats"
+      },
+      {
+        "question": "Which international agreement aims to protect endangered species and regulate international trade in wildlife?",
+        "options": [
+          "Paris Agreement",
+          "Kyoto Protocol",
+          "Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES)",
+          "United Nations Framework Convention on Climate Change (UNFCCC)"
+        ],
+        "correctAnswer": "Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES)"
+      },
+      {
+        "question": "What is the term for the responsible management and use of natural resources to ensure their long-term sustainability?",
+        "options": [
+          "Exploitation",
+          "Conservation",
+          "Overconsumption",
+          "Pollution"
+        ],
+        "correctAnswer": "Conservation"
+      },
+      {
+        "question": "Which of the following is an example of a renewable resource?",
+        "options": [
+          "Natural gas",
+          "Coal",
+          "Solar energy",
+          "Rare minerals"
+        ],
+        "correctAnswer": "Solar energy"
+      },
+      {
+        "question": "What is the concept of 'sustainable agriculture' primarily concerned with?",
+        "options": [
+          "Maximizing short-term crop yields",
+          "Reducing pesticide use",
+          "Minimizing the impact of agriculture on the environment while maintaining long-term productivity",
+          "Growing genetically modified crops"
+        ],
+        "correctAnswer": "Minimizing the impact of agriculture on the environment while maintaining long-term productivity"
+      },
+      {
+        "question": "Which organization plays a significant role in the conservation of ocean ecosystems and marine species?",
+        "options": [
+          "World Health Organization (WHO)",
+          "Greenpeace",
+          "World Wildlife Fund (WWF)",
+          "United Nations Educational, Scientific and Cultural Organization (UNESCO)"
+        ],
+        "correctAnswer": "World Wildlife Fund (WWF)"
+      },
+      {
+        "question": "What is the main threat to coral reefs worldwide?",
+        "options": [
+          "Tourism",
+          "Coral mining",
+          "Ocean acidification",
+          "Overfishing"
+        ],
+        "correctAnswer": "Ocean acidification"
+      },
+      {
+        "question": "What does the term 'renewable energy' refer to?",
+        "options": [
+          "Energy sources that are inexhaustible and can be used indefinitely",
+          "Energy derived from fossil fuels",
+          "Energy sources that are not suitable for sustainable use",
+          "Energy produced from nuclear reactions"
+        ],
+        "correctAnswer": "Energy sources that are inexhaustible and can be used indefinitely"
+      }
+    
+    
+
   ]
   
