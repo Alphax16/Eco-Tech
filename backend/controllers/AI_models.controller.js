@@ -29,6 +29,7 @@ const oilSpillDetector = async (req, res) => {
   try {
     const file = req.files.file;
     console.log(req.file);
+
     const cloudinaryResponse = await cloudinary.uploader.upload(file.tempFilePath, {
       folder: "images",
     });
@@ -50,7 +51,40 @@ const oilSpillDetector = async (req, res) => {
   }
 };
 
+const noisePollutionDetector = async (req, res) => {
+  try {
+    const file = req.files.file;
+    const { areaType, dayTime } = req.body;
+    
+    console.log('Req.files value:', req.files);
+    console.log('Req.body:', req.body);
+
+    const cloudinaryResponse = await cloudinary.uploader.upload(file.tempFilePath, {
+      resource_type: 'auto',
+      folder: "audios",
+    });
+
+    console.log('Cloudinary Response:', cloudinaryResponse);
+
+    const cloudinaryURL = cloudinaryResponse.secure_url;
+
+    const scriptPath = "./python-models/NoisePollutionDetector.py";
+    const cmdLineArgs = `${areaType.toLowerCase()} ${dayTime} ${cloudinaryURL}`;
+
+    console.log('Command line arguments:', cmdLineArgs);
+
+    const result = await runPythonScript(scriptPath, cmdLineArgs);
+    console.log('Script Response:', result);
+
+    res.status(200).json({ success: "Uploaded successfully!", url: result });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error uploading file" });
+  }
+}
+
 module.exports = {
   waterPotabilityPredictor,
   oilSpillDetector,
+  noisePollutionDetector,
 };

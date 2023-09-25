@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ThreeCircles } from "react-loader-spinner";
 
+
 const WaterPotabilityPredictor = () => {
   const [loading, setLoading] = useState(false); // Track loading status
   const [responseText, setResponseText] = useState("");

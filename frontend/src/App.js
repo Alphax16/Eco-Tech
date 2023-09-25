@@ -1,22 +1,23 @@
-import { Box, Text } from "@chakra-ui/react";
-import "./App.css";
 import React, { createContext, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./containers/Home";
-import Quiz from "./containers/Quiz";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import ForestMap from "./containers/ForestMap";
+import { Box, Text } from "@chakra-ui/react";
+import "./App.css";
 
-import Visualizations from "./containers/Visualizations";
-import NotFound from "./containers/NotFound";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Tour from "./Tour";
-import ModelCards from "./components/ModelCards";
 import { TourProvider } from "./context/TourContext";
-import WaterPotabilityPredictor from "./containers/WaterPotabilityPredictor";
-import OilSpillDetector from "./containers/OilSpillDetector";
-import StatCards from "./components/StatCards";
-import TreeStats from "./containers/TreeStats";
+
+import Home from "./containers/Home";
+import ForestMap from "./containers/ForestMap";
+import Statistics from "./containers/Statistics";
+import Visualizations from "./containers/Visualizations";
+import Quiz from "./containers/Quiz";
+import NotFound from "./containers/NotFound";
+
+import AI_Model_Routes from "./AI_Model_Routes";
+
 
 function App() {
   return (
@@ -26,24 +27,11 @@ function App() {
         <Tour />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
           <Route path="/forest-map" element={<ForestMap />} />
-          <Route path="/statistics" element={<StatCards />} />
-
-          <Route path="/statistics/Tree-data" element={<TreeStats />} />
+          <Route path="/statistics" element={<Statistics />} />
           <Route path="/visualizations" element={<Visualizations />} />
-
-          <Route path="/models" element={<ModelCards />} />
-
-          <Route
-            path="/models/water-potability-predictor"
-            element={<WaterPotabilityPredictor />}
-          />
-          <Route
-            path="/models/oil-spill-detector"
-            element={<OilSpillDetector />}
-          />
-
+          <Route path="/models/*" element={<AI_Model_Routes />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TourProvider>
