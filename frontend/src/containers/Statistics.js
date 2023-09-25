@@ -3,6 +3,7 @@ import ExcelTable from "../components/Table";
 import axios from "axios";
 import { Box, Heading } from "@chakra-ui/react";
 
+
 function Statistics() {
   const [treeStats, setTreeStats] = useState([]);
 

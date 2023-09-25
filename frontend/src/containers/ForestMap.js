@@ -167,10 +167,7 @@ const ForestMap = () => {
               treeStats.map((ts) => {
                 console.log("ts:", ts);
                 return (
-                  <Marker
-                    position={[ts.Latitude, ts.Longitude]}
-                    icon={customIcon}
-                  >
+                  <Marker position={[ts.Latitude, ts.Longitude]} icon={customIcon}>
                     <Popup>{`${ts["State/UT"]} [Tree Count: ${
                       ts[parseInt(selectedYear)]
                     }]`}</Popup>

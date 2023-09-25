@@ -2,20 +2,11 @@ import React, { useState } from "react";
 import { Box, Button, Center, Image, Input, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
 
+
 const OilSpillDetector = () => {
-  const [isOpen, setIsOpen] = useState(true);
   const [file, setSelectedFile] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  const [resImgURL, setResImgURL] = useState('');
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const [resImgURL, setResImgURL] = useState("");
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -31,7 +22,6 @@ const OilSpillDetector = () => {
   const handleUpload = () => {
     if (file) {
       handleSubmit();
-      closeModal();
     }
   };
 
@@ -67,74 +57,113 @@ const OilSpillDetector = () => {
       );
       console.log("File uploaded:", response.data);
       alert(response.data.success);
-      
+
       setResImgURL(response.data.url);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
   };
 
+  const downloadResImage = () => {
+    if (resImgURL) {
+      fetch(resImgURL).then((res) => res.blob())
+        .then((blob) => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "OilSpill_Segmented_Image.png";
+          a.style.display = "none";
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        });
+    }
+  };
+
   return (
-    <Box p={32} h="100vh" bg="#12504B" color="#fff">
-      <Center>
-        <Flex direction="column" align="center">
-          <Box
-            w="300px"
-            h={{ base: "150px", lg: "250px" }}
+    <div>
+      <Box p={32} h="100vh" bg="#12504B" color="#fff">
+        <Center>
+          <div
+            style={{
+              border: "2px dashed #ccc",
+              padding: "40px",
+              textAlign: "center",
+              cursor: "pointer",
+              maxWidth: "400px",
+              backgroundColor: "#12504B",
+              color: "#fff",
+            }}
             onDrop={handleDrop}
             onDragOver={(e) => e.preventDefault()}
-            mt={4} // Add margin-top to create spacing
           >
+            <Box
+              w="300px"
+              h={{ base: "150px", lg: "250px" }}
+              mt={4}
+            >
+              {imagePreview ? (!resImgURL ? (
+                <Image maxW="100%" maxH="100%" src={imagePreview} alt="Preview" />
+              ) : (
+                  <div>
+                    <img src={resImgURL} alt="No Response-Img" style={{ margin: "2rem auto" }} />
+                    <Button colorScheme="teal" mt={2} onClick={downloadResImage}>Download</Button>
+                  </div>
+              )) : (
+                <>
+                  <img src="/assets/Dropboxlogo.png" alt="No-Img" />
+                  <Text textAlign="center" mt={2}>
+                    Drag and drop your image here
+                  </Text>
+                </>
+              )}
+            </Box>
+            <Text textAlign="center" mt={2}>
+              Or
+            </Text>
+            <Input
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              id="fileInput"
+              display="none"
+            />
             {imagePreview ? (
-              <Image maxW="100%" maxH="100%" src={imagePreview} alt="Preview" />
-            ) : (
-              <>
-                <img src="/assets/Dropboxlogo.png" alt="No-Img" />
-                <Text textAlign="center" mt={2}> {/* Adjust the margin-top */}
-                  Drag and drop your image here
-                </Text>
-              </>
-            )}
-          </Box>
-          <Text textAlign="center" mt={2}>Or</Text> {/* Adjust the margin-top */}
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            id="fileInput"
-            display="none"
-          />
-          {imagePreview ? (
-            <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
-              Choose Again
-            </Button>
-          ) : (
-            <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
-              Choose Image
-            </Button>
-          )}
-          {file && (
-            <div>
-              <p style={{ textAlign: "center", margin: "2rem 0" }}> {/* Adjust the margin */}
-                Selected Image: {file.name}
-              </p>
-              <Button
-                colorScheme="teal"
-                onClick={handleUpload}
-                style={{ display: "block", margin: "0 auto" }}
-              >
-                Upload
+              <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
+                Choose Again
               </Button>
-            </div>
-          )}
-          {resImgURL && (
-            <div>
-              <img src={resImgURL} alt="No Response-Img" style={{ margin: "2rem auto" }} /> {/* Adjust the margin */}
-            </div>
-          )}
-        </Flex>
-      </Center>
-    </Box>
+            ) : (
+              <Button colorScheme="teal" mt={2} onClick={chooseImageButtonClick}>
+                Choose Image
+              </Button>
+            )}
+            {file && (
+              <div>
+                <p style={{ textAlign: "center", margin: "2rem 0" }}>
+                  Selected Image: {file.name}
+                </p>
+                <Button
+                  colorScheme="teal"
+                  onClick={handleUpload}
+                  style={{ display: "block", margin: "0 auto" }}
+                >
+                  Upload
+                </Button>
+              </div>
+            )}
+            {/* {resImgURL && (
+              <div>
+                <img
+                  src={resImgURL}
+                  alt="No Response-Img"
+                  style={{ margin: "2rem auto" }}
+                />
+              </div>
+            )} */}
+          </div>
+        </Center>
+      </Box>
+    </div>
   );
 };
 
