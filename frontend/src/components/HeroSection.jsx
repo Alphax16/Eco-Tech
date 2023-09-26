@@ -1,17 +1,5 @@
-import {
-  Container,
-  Stack,
-  Flex,
-  Box,
-  Heading,
-  Text,
-  Button,
-  Image,
-  Icon,
-  IconButton,
-  createIcon,
-  IconProps,
-  useColorModeValue,
+import { Container, Stack, Flex, Box, Heading, Text, Button, Image, Icon, 
+  IconButton, createIcon, IconProps, useColorModeValue,
 } from '@chakra-ui/react'
 import Navbar from './Navbar'
 import { motion } from 'framer-motion'
@@ -164,8 +152,8 @@ const HeroSection =()=> {
               alt={'Hero Image'}
               fit={'cover'}
               align={{lg:'right', base:'center'}}
-              initial={{ width: "50vw", x: "50vw" }}
-              animate={{ width: "50vw", x: 0 }}
+              initial={{ width: "50vw", x: "50vw", opacity: 0, y: 20, rotateY: 0 }}
+              animate={{ width: "50vw", x: 0, opacity: 1, y: 0, rotateY: 360 }}
               margin={'auto'}
               transition={{ duration: 1, origin: 1.2 }}
           

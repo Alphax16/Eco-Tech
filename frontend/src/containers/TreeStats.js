@@ -30,7 +30,7 @@ function TreeStats() {
         fontSize={{ base: "2xl", sm: "4xl" }}
         fontWeight={"bold"}
       >
-        Tree Stats
+        Tree Coverage Area (in Sq. kilometers)
       </Heading>
 
       <ExcelTable data={treeStats} />
