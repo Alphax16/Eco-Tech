@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Plot from "../components/Plot";
+import { Box, Flex } from "@chakra-ui/react";
 
 
 function Visualizations() {
@@ -21,10 +22,12 @@ function Visualizations() {
     }, []);
 
     return (
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <Flex py={'16'} bg={'#12504B'}>
+        {/* <div style={{display: 'flex', justifyContent: 'center'}}> */}
             {/* <div>Plot:</div> */}
             <Plot data={treeStats} />
-        </div>
+        {/* </div> */}
+        </Flex>
     )
 }
 

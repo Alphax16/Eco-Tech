@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
+import { Box, Flex, Select, Text, useColorModeValue } from "@chakra-ui/react";
 
 
-const TimeSeriesChart = ({ data, width="80%", height="40%" }) => {
+const TimeSeriesChart = ({ data, width = "100%", height = "auto" }) => {
   const chartRef = useRef(null);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [chart, setChart] = useState(null);
@@ -127,15 +128,17 @@ const TimeSeriesChart = ({ data, width="80%", height="40%" }) => {
     return (maxValue - minValue) / divisions;
   };
 
+  const plotColor = useColorModeValue("white", "gray.700");
+
   return (
-    <div style={{ marginTop: "10%", width: width }}>
-      <div>
-        <label>Select a Location:</label>
-        <select
+    <Box p="4" borderWidth="1px" borderRadius="lg" bg={plotColor} width={width} height={height}>
+      <Flex align="center" justify="space-between">
+        <Text>Select a Location:</Text>
+        <Select
           value={selectedLocation || ""}
           onChange={(e) => selectLocation(e.target.value)}
+          placeholder="Select a Location"
         >
-          <option value="">Select a Location</option>
           {Array.from(new Set(data.map((item) => item["State/UT"]))).map(
             (location) => (
               <option key={location} value={location}>
@@ -143,12 +146,12 @@ const TimeSeriesChart = ({ data, width="80%", height="40%" }) => {
               </option>
             )
           )}
-        </select>
-      </div>
-      <div>
+        </Select>
+      </Flex>
+      <Box mt="4">
         <canvas ref={chartRef}></canvas>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

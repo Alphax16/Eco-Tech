@@ -2,7 +2,7 @@ import { Box, Flex, Text, Center,useColorModeValue,Image,useMediaQuery,Stack, He
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-const IMAGE = 'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
+const IMAGE = "/assets/Pollution Types Images/Slate Background Image.jpg"
 
 
 const PollutionTypes = () => {
@@ -53,7 +53,7 @@ const Card = ({ card }) => {
   return (
     <Box
       key={card.id}
-      h="450px"
+      h="600px"
       w="450px"
       overflow="hidden"
       bg="neutral.200"
@@ -98,23 +98,26 @@ const Card = ({ card }) => {
             height={230}
             width={282}
             objectFit={'cover'}
-            src={IMAGE}
-            alt="#"
+            src={card.url}
+            alt="/"
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+          {/* <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
             Brand
-          </Text>
+          </Text> */}
           <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-            Nice Chair, pink
+            {card.title}
           </Heading>
           <Stack direction={'row'} align={'center'}>
-            <Text fontWeight={800} fontSize={'xl'}>
+            {/* <Text fontWeight={800} fontSize={'xl'}>
               $57
             </Text>
             <Text textDecoration={'line-through'} color={'gray.600'}>
               $199
+            </Text> */}
+            <Text color={'gray.600'}>
+              {card.desc}
             </Text>
           </Stack>
         </Stack>
@@ -128,29 +131,44 @@ export default PollutionTypes;
 
 const cards = [
   {
-    url: IMAGE,
-    title: "Title 1",
     id: 1,
+    url: "/assets/Pollution Types Images/Air Pollution.jpg",
+    title: "Air Pollution",
+    desc: `Contamination of the Earth's atmosphere by harmful substances like pollutants and particulate matter.
+    Major sources include industrial emissions, vehicle exhaust, and burning fossil fuels.
+    Health effects: respiratory problems, cardiovascular diseases, and reduced air quality.`,
   },
   {
-    url: IMAGE,
-    title: "Title 2",
     id: 2,
+    url: "/assets/Pollution Types Images/Water Pollution.jpg",
+    title: "Water Pollution",
+    desc: `Contamination of water bodies (rivers, lakes, oceans) by pollutants like chemicals, sewage, and waste.
+    Causes include industrial runoff, agricultural pesticides, and improper waste disposal.
+    Consequences: compromised aquatic ecosystems, harm to human health, and reduced access to clean water.`,
   },
   {
-    url: IMAGE,
-    title: "Title 3",
     id: 3,
+    url: "/assets/Pollution Types Images/Land Pollution.jpg",
+    title: "Land Pollution",
+    desc: `Degradation of land quality due to various pollutants, including hazardous waste, litter, and soil erosion.
+    Activities like mining, improper disposal of waste, and deforestation contribute.
+    Impacts: soil infertility, loss of biodiversity, and impaired agricultural productivity.`,
   },
   {
-    url: IMAGE,
-    title: "Title 4",
     id: 4,
+    url: "/assets/Pollution Types Images/Noise Pollution.jpg",
+    title: "Noise Pollution",
+    desc: `Excessive and disruptive levels of noise in the environment, often from urbanization and transportation.
+    Sources include traffic, construction, and industrial machinery.
+    Adverse effects: stress, hearing impairment, and sleep disturbances.`,
   },
   {
-    url: IMAGE,
-    title: "Title 5",
     id: 5,
+    url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
+    title: "Radioactive Pollution",
+    desc: `Presence of radioactive materials in the environment, resulting from nuclear accidents, nuclear power plants, or improper disposal of radioactive waste.
+    Can lead to radiation exposure and health risks like cancer and genetic mutations.
+    Requires strict containment and disposal measures to prevent harm.`,
   },
 
 ];

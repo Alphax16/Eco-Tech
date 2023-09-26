@@ -89,7 +89,7 @@ const ForestMap = () => {
         fontSize={{ base: "2xl", sm: "4xl" }}
         fontWeight={"bold"}
       >
-        Tree In Enviornment
+        Tree Coverage Area (in Sq. kilometers)
       </Heading>
       <VStack
         justifyContent="center"
@@ -99,8 +99,8 @@ const ForestMap = () => {
         <Box color="#fff" width={"30%"}>
           <Center>
             <FormControl width={"50%"} textAlign={"center"}>
-              <Text mt={"-20px"} py={"6"}>
-                Select a Year:
+              <Text mt={"-60px"} ml={"-2.5vw"} py={"6"} fontSize={{ base: 'sm', sm: 'lg' }}>
+                Select an Year:
               </Text>
               <Popover
                 isOpen={isYearSelectorOpen}
