@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Box, Center, Flex, FormLabel, List, Text, UnorderedList, Button, 
-  AlertDialog, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, 
-  AlertDialogBody, AlertDialogFooter, useDisclosure, Heading,
+import {
+  Box,
+  Center,
+  Flex,
+  FormLabel,
+  List,
+  Text,
+  UnorderedList,
+  Button,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  useDisclosure,
+  Heading,
 } from "@chakra-ui/react";
-
 
 function Quiz() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,17 +29,20 @@ function Quiz() {
 
   const loadAudioFiles = async () => {
     const sounds = {
-      click: new Audio("/assets/Quiz Assets/Click.mp3"),
-      lost: new Audio("/assets/Game Sounds/Lost.mp3"),
-      try: new Audio("/assets/Quiz Assets/Try.mp3"),
-      victory: new Audio("/assets/Quiz Assets/Victory.mp3"),
+      click: new Audio("assets/Quiz Assets/Click.mp3"),
+      lost: new Audio("assets/Game Sounds/Lost.mp3"),
+      try: new Audio("assets/Quiz Assets/Try.mp3"),
+      victory: new Audio("assets/Quiz Assets/Victory.mp3"),
     };
 
-    const loadPromises = Object.values(sounds).map((audio) =>
-      new Promise((resolve, reject) => {
-        audio.addEventListener("canplaythrough", () => resolve(audio));
-        audio.addEventListener("error", () => reject(new Error("Error loading audio.")));
-      })
+    const loadPromises = Object.values(sounds).map(
+      (audio) =>
+        new Promise((resolve, reject) => {
+          audio.addEventListener("canplaythrough", () => resolve(audio));
+          audio.addEventListener("error", () =>
+            reject(new Error("Error loading audio."))
+          );
+        })
     );
 
     try {
@@ -101,7 +117,7 @@ function Quiz() {
       better: "Well tried! Can do much better.",
       goodJob: "Good job! Can set the bar high...",
       bravo: "Bravo! Almost there... Slay it!!",
-      won: "You are a perfectionist!!"
+      won: "You are a perfectionist!!",
     };
 
     if (score === 0) {
@@ -171,7 +187,10 @@ function Quiz() {
           <AlertDialogContent>
             <AlertDialogHeader>Results</AlertDialogHeader>
             <AlertDialogBody>
-              Your Score: <strong>{score} / {questions.length}</strong>
+              Your Score:{" "}
+              <strong>
+                {score} / {questions.length}
+              </strong>
               <Box>{getPerformanceReport(score)}</Box>
             </AlertDialogBody>
             <AlertDialogFooter>
@@ -185,7 +204,12 @@ function Quiz() {
 
       <Box pt={{ base: "15%", lg: "6%" }}>
         <Center display="flex" flexDir="column">
-          <Heading py="4" fontSize={{ base: "2xl", sm: "4xl" }} fontWeight="bold" color="white">
+          <Heading
+            py="4"
+            fontSize={{ base: "2xl", sm: "4xl" }}
+            fontWeight="bold"
+            color="white"
+          >
             ECO QUIZ
           </Heading>
           {currentIndex < questions.length && (
@@ -201,7 +225,12 @@ function Quiz() {
               </Text>
               <UnorderedList>
                 {questions[currentIndex].options.map((option, optionIndex) => (
-                  <List key={optionIndex} textAlign="center" fontSize="xl" my="3">
+                  <List
+                    key={optionIndex}
+                    textAlign="center"
+                    fontSize="xl"
+                    my="3"
+                  >
                     <FormLabel
                       textAlign="center"
                       borderRadius="xl"

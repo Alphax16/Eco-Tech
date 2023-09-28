@@ -10,6 +10,10 @@ import { useTour } from '../context/TourContext'
 
 const HeroSection =()=> {
   const { startTour, setStartTour } = useTour();
+  const handleStartTourClick = () => {
+    
+    setStartTour(true);
+  };
 
   const MotionContainer = motion(Container);
   const MotionText = motion(Text);
@@ -17,7 +21,7 @@ const HeroSection =()=> {
   
 
   return (
-    <Box bg={'#12504B'}  >
+    <Box bg={'#12504B'} className='joyride-start' >
     
     <MotionContainer maxW={'10xl'}  height={'100vh'} backgroundImage="url('/assets/hero_background.jpg')"
     backgroundSize="cover"
@@ -118,7 +122,7 @@ const HeroSection =()=> {
               size={'lg'}
               fontWeight={'normal'}
               px={6}
-              onClick={() => setStartTour(true)}
+              onClick={handleStartTourClick}
               leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}>
               How It Works
               

@@ -3,7 +3,6 @@ import Joyride from "react-joyride";
 import { useNavigate } from "react-router-dom";
 import { useTour } from "./context/TourContext";
 
-
 function Tour() {
   const [runTour, setRunTour] = useState(false);
   const navigate = useNavigate();
@@ -11,7 +10,11 @@ function Tour() {
 
   const tourSteps = [
     // Define steps
-
+    {
+      target: "body",
+      content: "This tab contains all features of the webapp",
+      placement: "center",
+    },
     {
       target: ".navbox",
       content: "This tab contains all features of the webapp",
@@ -51,7 +54,11 @@ function Tour() {
       continuous={true}
       showProgress={true}
       showSkipButton={true}
-      callback={handleTourFinish}
+      callback={(tour) => {
+        if (tour.status === "finished") {
+          setRunTour(false);
+        }
+      }}
     />
   );
 }
