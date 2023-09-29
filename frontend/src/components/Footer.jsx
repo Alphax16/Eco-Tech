@@ -45,11 +45,11 @@ const Footer = ()=> {
             flexGrow: 1,
             ml: 8,
           }}>
-          <Text fontWeight={'bold'}>LOGO</Text>
+          <Text fontWeight={'bold'}>GEEKCO</Text>
         
         </Flex>
         <Text pt={6} fontSize={'sm'} textAlign={'center'}>
-        © 2023 Amigos. All rights reserved
+        © 2023 Amigos. All rights reserved.
         </Text>
       </Box>
           <Stack align={'center'}>
@@ -65,9 +65,6 @@ const Footer = ()=> {
             </Stack>
             <Box as="a" href={'#'}>
               Tutorials
-            </Box>
-            <Box as="a" href={'#'}>
-              Pricing
             </Box>
             <Box as="a" href={'#'}>
               Releases
@@ -111,20 +108,17 @@ const Footer = ()=> {
           </Stack> */}
           <Stack align={'center'}>
             <ListHeader>Follow Us</ListHeader>
-            <Box as="a" href={'#'}>
-              Facebook
+            <Box as="a" href={"www.github.com"}>
+              GitHub
             </Box>
-            <Box as="a" href={'#'}>
-              Twitter
+            <Box as="a" href={"www.linkedin.com"}>
+              LinkedIn
             </Box>
-            <Box as="a" href={'#'}>
+            <Box as="a" href={"www.dribbble.com"}>
               Dribbble
             </Box>
-            <Box as="a" href={'#'}>
-              Instagram
-            </Box>
-            <Box as="a" href={'#'}>
-              LinkedIn
+            <Box as="a" href={"www.twitter.com"}>
+              Twitter X
             </Box>
           </Stack>
         </SimpleGrid>

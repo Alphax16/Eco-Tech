@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Box, Text } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Box, Button, Text } from "@chakra-ui/react";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -21,7 +21,9 @@ import StatCards from "./components/StatCards";
 
 
 function App() {
+
   return (
+    <div>
     <Router>
       <Navbar />
       <TourProvider>
@@ -38,6 +40,7 @@ function App() {
       </TourProvider>
       <Footer />
     </Router>
+    </div>
   );
 }
 
