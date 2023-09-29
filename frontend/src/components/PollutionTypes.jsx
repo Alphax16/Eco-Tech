@@ -213,7 +213,7 @@ const cards = [
     url: "/assets/Pollution Types Images/Noise Pollution.jpg",
     title: "Noise Pollution",
     desc: `Excessive levels of noise in the environment from urbanization and transportation. Sources include traffic and industrial machinery. Adverse effects: stress and hearing impairment.`,
-    redirect: "",
+    redirect: "https://en.wikipedia.org/wiki/Noise_pollution",
   },
   {
     id: 5,
