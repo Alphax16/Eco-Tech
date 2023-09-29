@@ -4,6 +4,7 @@ import ModelCards from "./components/ModelCards";
 import WaterPotabilityPredictor from "./containers/AI Models/WaterPotabilityPredictor";
 import OilSpillDetector from "./containers/AI Models/OilSpillDetector";
 import NoisePollutionDetector from "./containers/AI Models/NoisePollutionDetector";
+import FireDetector from "./containers/AI Models/FireDetector";
 
 
 function AI_Model_Routes() {
@@ -13,6 +14,7 @@ function AI_Model_Routes() {
         <Route path="water-potability-predictor" element={<WaterPotabilityPredictor />} />
         <Route path="oil-spill-detector" element={<OilSpillDetector />} />
         <Route path="noise-pollution-detector" element={<NoisePollutionDetector />} />
+        <Route path="fire-detector" element={<FireDetector />} />
       </Routes>
     );
   }
