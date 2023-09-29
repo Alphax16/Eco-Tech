@@ -60,6 +60,7 @@ function Quiz() {
     fetch("/quiz.json")
       .then((response) => response.json())
       .then((data) => {
+        console.log('DATA-47:', data);
         if (Array.isArray(data)) {
           const shuffledQuestions = shuffleArray(data);
           const selectedQuestions = shuffledQuestions.slice(0, 10);
@@ -151,11 +152,11 @@ function Quiz() {
           });
         }
       } else if (score >= 1 && score <= 3) {
-        if (gameSounds && gameSounds.lost) {
-          gameSounds.lost.play().catch((err) => {
-            console.error("Error playing audio:", err);
-          });
-        }
+          if (gameSounds && gameSounds.lost) {
+            gameSounds.lost.play().catch((err) => {
+              console.error("Error playing audio:", err);
+            });
+          }
       } else if (score >= 4 && score <= 6) {
         if (gameSounds && gameSounds.try) {
           gameSounds.try.play().catch((err) => {

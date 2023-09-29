@@ -11,7 +11,7 @@ const PollutionTypes = () => {
   return (
     <Box bg="url('/assets/pollution_green.jpg')" bgPos={'center'} bgRepeat={'no-repeat'}  backgroundSize="cover">
    {/* <Box bg={''}>  */}
-
+      
       <HorizontalScrollCarousel />
     
     </Box>

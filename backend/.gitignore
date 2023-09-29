@@ -26,3 +26,6 @@ yarn-error.log*
 
 # Python Dependecies-
 /ECO_ENV
+
+# AI Model Weights/Pickles files-
+/weights-pickles
