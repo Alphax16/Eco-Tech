@@ -108,16 +108,9 @@ const NoisePollutionDetector = () => {
   };
 
   return (
-    <Box p={32} h="100vh" bg="#12504B" color="#fff">
+    <Box p={32} h="max-content" bg="#12504B" color="#fff">
       <Flex direction="column" align="center">
-        {showRecording && !isRecording && (
-          <>
-            <Button colorScheme="teal" onClick={startRecording} mt={2}>
-              Start Recording
-            </Button>
-            
-          </>
-        )}
+       
         {showRecording && isRecording && (
           <>
             <Button colorScheme="red" onClick={stopRecording} mt={2}>
