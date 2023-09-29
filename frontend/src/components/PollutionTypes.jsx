@@ -134,41 +134,31 @@ const cards = [
     id: 1,
     url: "/assets/Pollution Types Images/Air Pollution.jpg",
     title: "Air Pollution",
-    desc: `Contamination of the Earth's atmosphere by harmful substances like pollutants and particulate matter.
-    Major sources include industrial emissions, vehicle exhaust, and burning fossil fuels.
-    Health effects: respiratory problems, cardiovascular diseases, and reduced air quality.`,
+    desc: `Air pollution is the presence of harmful particles and gases in the atmosphere, from human activities like industry and transportation, which poses risks and damages the environment.`,
   },
   {
     id: 2,
     url: "/assets/Pollution Types Images/Water Pollution.jpg",
     title: "Water Pollution",
-    desc: `Contamination of water bodies (rivers, lakes, oceans) by pollutants like chemicals, sewage, and waste.
-    Causes include industrial runoff, agricultural pesticides, and improper waste disposal.
-    Consequences: compromised aquatic ecosystems, harm to human health, and reduced access to clean water.`,
+    desc: `Water pollution is the contamination of water bodies, such as rivers and oceans, by chemicals, sewage, and waste, harming aquatic life and threatening human health`,
   },
   {
     id: 3,
     url: "/assets/Pollution Types Images/Land Pollution.jpg",
     title: "Land Pollution",
-    desc: `Degradation of land quality due to various pollutants, including hazardous waste, litter, and soil erosion.
-    Activities like mining, improper disposal of waste, and deforestation contribute.
-    Impacts: soil infertility, loss of biodiversity, and impaired agricultural productivity.`,
+    desc: `Land pollution is the degradation of the Earth's surface due to the accumulation of harmful chemicals, waste, and contaminants, impacting soil quality, ecosystems, and human health`,
   },
   {
     id: 4,
     url: "/assets/Pollution Types Images/Noise Pollution.jpg",
     title: "Noise Pollution",
-    desc: `Excessive and disruptive levels of noise in the environment, often from urbanization and transportation.
-    Sources include traffic, construction, and industrial machinery.
-    Adverse effects: stress, hearing impairment, and sleep disturbances.`,
+    desc: `Noise pollution is the excessive, disruptive presence of sound in the environment, often caused by traffic, industry, and construction, leading to stress and health problems`,
   },
   {
     id: 5,
     url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
     title: "Radioactive Pollution",
-    desc: `Presence of radioactive materials in the environment, resulting from nuclear accidents, nuclear power plants, or improper disposal of radioactive waste.
-    Can lead to radiation exposure and health risks like cancer and genetic mutations.
-    Requires strict containment and disposal measures to prevent harm.`,
+    desc: `Radioactive pollution results from the release of radioactive materials, like nuclear accidents or improper disposal, posing severe health risks and environmental contamination`,
   },
 
 ];
