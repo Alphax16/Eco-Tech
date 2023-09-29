@@ -1,7 +1,7 @@
 import { Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, useDisclosure, Stack, Image, useToast, } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Import Link and useLocation
 import { useEffect, useState, useRef } from "react";
 
 
@@ -17,32 +17,42 @@ const Links = [
 
 const Navbar = () => {
     const toast = useToast();
-
+    
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const location = useLocation(); // Get the current route
+    
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const isHomeRoute = location.pathname === '/';
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+    
     const [activeLink, setActiveLink] = useState("/"); // Initialize with the default route
     const [fact, setFact] = useState();
+
     const updateActiveLink = () => {
-    const currentPath = location.pathname;
-    setActiveLink(currentPath);
+        const currentPath = location.pathname;
+        setActiveLink(currentPath);
     };
 
     useEffect(() => {
-    updateActiveLink();
+        updateActiveLink();
     }, [location]);
 
     const getRandomFact = () => {
-    console.log("clicked");
-    fetch("/facts.json")
-        .then((response) => response.json())
-        .then((data) => {
-        setFact(sufflefact(data));
-        console.log(data);
-        })
-        .catch((error) => console.error("Error loading quiz data:", error));
+        console.log("clicked");
+        fetch("/facts.json")
+            .then((response) => response.json())
+            .then((data) => {
+                setFact(shufflefact(data));
+                console.log(data);
+            })
+            .catch((err) => console.error("Error loading quiz data:", err));
     };
 
-    const sufflefact = (data) => {
+    const shufflefact = (data) => {
     const randomIndex = Math.floor(Math.random() * data.length);
     toast({
         title: data[randomIndex].fact,
@@ -64,6 +74,20 @@ const Navbar = () => {
         left={"0"}
         >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        {isHomeRoute ? 
+        (
+            // <Image src="/assets/Logo/Geekco-Logo.png" alt="Geekco-Logo" />
+            <Box as="img" src="/assets/Logo/Geekco-Logo.png" alt="Logo" boxSize="50px" 
+            _hover={{
+                transition: "filter 0.5s ease",
+                filter: "hue-rotate(360deg)"
+              }}
+            />
+         ) : (
+            <Button onClick={handleGoBack} textDecoration="none" backgroundColor="teal" color="white" >
+              Back
+            </Button>
+          )}
             <IconButton
             size={"sm"}
             icon={
