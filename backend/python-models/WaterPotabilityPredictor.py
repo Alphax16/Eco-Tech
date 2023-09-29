@@ -13,8 +13,17 @@ warnings.filterwarnings('ignore')
 # print(dirs_string)
 
 try:
-    with open("./weights-pickles/WaterPotability_Final.pkl", 'rb') as fpk:
+    with open("./weights-pickles/WaterPotability_RF.pkl", 'rb') as fpk:
         model = load(fpk)
+        ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity = argv[1:]
+
+    X = np.array([[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]])
+
+    try:
+        X_pred = ['potable', 'not potable'][model.predict(X)[0]]
+        print(X_pred)
+    except Exception as ex:
+        print(ex)
 except Exception as ex:
     curr_dir = os.getcwd()
     dirs = os.listdir(curr_dir)
@@ -33,13 +42,14 @@ except Exception as ex:
 # Trihalomethanes = 50
 # Turbidity = 4
 
-ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity = argv[1:]
 
-X = np.array([[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]])
+# ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity = argv[1:]
 
-try:
-    X_pred = ['potable', 'not potable'][model.predict(X)[0]]
-    print(X_pred)
-except Exception as ex:
-    print(ex)
+# X = np.array([[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]])
+
+# try:
+#     X_pred = ['potable', 'not potable'][model.predict(X)[0]]
+#     print(X_pred)
+# except Exception as ex:
+#     print(ex)
 

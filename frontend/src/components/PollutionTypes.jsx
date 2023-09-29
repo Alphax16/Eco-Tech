@@ -52,6 +52,11 @@ const HorizontalScrollCarousel = () => {
 };
 
 const Card = ({ card }) => {
+  const handleCardClick = (event) => {
+    event.preventDefault();
+    window.open(card.redirect, "_blank");
+  };
+
   return (
     <Box
       key={card.id}
@@ -62,16 +67,11 @@ const Card = ({ card }) => {
       pos="relative"
       className="group"
       maxW={'345px'}
-            
-        rounded={'md'}
-        p={6}
-
-        transition="box-shadow 0.3s, transform 0.3s"
-        _hover={{
-
-        
-          transform: "scale(1.05)", 
-        }}
+      rounded={'md'}
+      p={6}
+      transition="box-shadow 0.3s, transform 0.3s"
+      _hover={{ transform: "scale(1.05)", }}
+      onClick={handleCardClick}
     >
       <Center py={12}>
       <Box
@@ -188,33 +188,38 @@ export default PollutionTypes;
 
 const cards = [
   {
-    "id": 1,
-    "url": "/assets/Pollution Types Images/Air Pollution.jpg",
-    "title": "Air Pollution",
-    "desc": "Contamination of the Earth's atmosphere by harmful substances. Major sources include industrial emissions and vehicle exhaust. Health effects: respiratory problems and reduced air quality."
+    id: 1,
+    url: "/assets/Pollution Types Images/Air Pollution.jpg",
+    title: "Air Pollution",
+    desc: `Contamination of the Earth's atmosphere by harmful substances. Major sources include industrial emissions and vehicle exhaust. Health effects: respiratory problems and reduced air quality.`,
+    redirect: "https://en.wikipedia.org/wiki/Air_pollution",
   },
   {
-    "id": 2,
-    "url": "/assets/Pollution Types Images/Water Pollution.jpg",
-    "title": "Water Pollution",
-    "desc": "Contamination of water bodies by pollutants like chemicals and sewage. Causes include industrial runoff and agricultural pesticides. Leads to harm to human health & aquatic life."
+    id: 2,
+    url: "/assets/Pollution Types Images/Water Pollution.jpg",
+    title: "Water Pollution",
+    desc: `Contamination of water bodies by pollutants like chemicals and sewage. Causes include industrial runoff and agricultural pesticides. Leads to harm to human health & aquatic life.`,
+    redirect: "https://en.wikipedia.org/wiki/Water_pollution",
   },
   {
-    "id": 3,
-    "url": "/assets/Pollution Types Images/Land Pollution.jpg",
-    "title": "Land Pollution",
-    "desc": "Degradation of land quality due to pollutants including hazardous waste and soil erosion. Activities like mining and deforestation contribute. Impacts: soil infertility and loss of biodiversity."
+    id: 3,
+    url: "/assets/Pollution Types Images/Land Pollution.jpg",
+    title: "Land Pollution",
+    desc: `Degradation of land quality due to pollutants including hazardous waste and soil erosion. Activities like mining and deforestation contribute. Impacts: soil infertility and loss of biodiversity.`,
+    redirect: "https://en.wikipedia.org/wiki/Soil_contamination",
   },
   {
-    "id": 4,
-    "url": "/assets/Pollution Types Images/Noise Pollution.jpg",
-    "title": "Noise Pollution",
-    "desc": "Excessive levels of noise in the environment from urbanization and transportation. Sources include traffic and industrial machinery. Adverse effects: stress and hearing impairment."
+    id: 4,
+    url: "/assets/Pollution Types Images/Noise Pollution.jpg",
+    title: "Noise Pollution",
+    desc: `Excessive levels of noise in the environment from urbanization and transportation. Sources include traffic and industrial machinery. Adverse effects: stress and hearing impairment.`,
+    redirect: "",
   },
   {
-    "id": 5,
-    "url": "/assets/Pollution Types Images/Radioactive Pollution.jpg",
-    "title": "Radioactive Pollution",
-    "desc": "Presence of radioactive materials from nuclear accidents and power plants. Can lead to radiation exposure and health risks like cancer. Requires strict containment measures to prevent harm."
+    id: 5,
+    url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
+    title: "Radioactive Pollution",
+    desc: `Presence of radioactive materials from nuclear accidents and power plants. Can lead to radiation exposure and health risks like cancer. Requires strict containment measures to prevent harm.`,
+    redirect: "https://en.wikipedia.org/wiki/Radioactive_contamination",
   },
 ]
