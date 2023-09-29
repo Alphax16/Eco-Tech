@@ -25,6 +25,23 @@ const waterPotabilityPredictor = async (req, res) => {
   res.send(result);
 };
 
+
+
+
+const aqipredictor = async (req, res) => {
+  const {
+   date
+  } = req.body;
+
+  const scriptPath = "./python-models/AQI_TimeSeriesPredictor.py";
+  const cmdLineArgs = `${date}`;
+
+  const result = await runPythonScript(scriptPath, cmdLineArgs);
+  console.log('Script Response:', result);
+
+  res.send(result);
+};
+
 const oilSpillDetector = async (req, res) => {
   try {
     const file = req.files.file;
@@ -115,5 +132,6 @@ module.exports = {
   waterPotabilityPredictor,
   oilSpillDetector,
   noisePollutionDetector,
-  firedetector
+  firedetector,
+  aqipredictor
 };

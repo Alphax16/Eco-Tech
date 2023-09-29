@@ -18,6 +18,7 @@ import NotFound from "./containers/NotFound";
 
 import AI_Model_Routes from "./AI_Model_Routes";
 import StatCards from "./components/StatCards";
+import TreeStats from "./containers/TreeStats";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/forest-map" element={<ForestMap />} />
-          <Route path="/statistics" element={<StatCards />} />
+          <Route path="/statistics" element={<TreeStats />} />
           <Route path="/visualizations" element={<Visualizations />} />
           <Route path="/models/*" element={<AI_Model_Routes />} />
           <Route path="/quiz" element={<Quiz />} />

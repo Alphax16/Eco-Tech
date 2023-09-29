@@ -35,6 +35,12 @@ const ModelCards = () => {
       description: `State-of-the-art fire detection systems for early and accurate fire alerts. Utilizes AI and image processing for rapid response, minimizing damage and ensuring safety.`,
       linkTo: "/models/fire-detector"
     },
+    {
+      title: "AQI Predictor",
+      imageSrc: "assets/aqi.jpg",
+      description: `AQI (Air Quality Index) predictor uses data analysis and factors to forecast air quality, providing information for health and pollution management.`,
+      linkTo: "/models/Aqi-predictor"
+    },
   ]
   
 
