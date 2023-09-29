@@ -2,8 +2,10 @@ import { Box, Flex, Text, Center,useColorModeValue,Image,useMediaQuery,Stack, He
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
+
 const IMAGE = "/assets/Pollution Types Images/Slate Background Image.jpg"
 
+const MotionBox = motion(Box);
 
 const PollutionTypes = () => {
 
@@ -59,6 +61,17 @@ const Card = ({ card }) => {
       bg="neutral.200"
       pos="relative"
       className="group"
+      maxW={'345px'}
+            
+        rounded={'md'}
+        p={6}
+
+        transition="box-shadow 0.3s, transform 0.3s"
+        _hover={{
+
+        
+          transform: "scale(1.05)", 
+        }}
     >
       <Center py={12}>
       <Box
@@ -129,8 +142,53 @@ const Card = ({ card }) => {
 
 export default PollutionTypes;
 
+// const cards = [
+//   {
+//     id: 1,
+//     url: "/assets/Pollution Types Images/Air Pollution.jpg",
+//     title: "Air Pollution",
+//     desc: `Contamination of the Earth's atmosphere by harmful substances like pollutants and particulate matter.
+//     Major sources include industrial emissions, vehicle exhaust, and burning fossil fuels.
+//     Health effects: respiratory problems, cardiovascular diseases, and reduced air quality.`,
+//   },
+//   {
+//     id: 2,
+//     url: "/assets/Pollution Types Images/Water Pollution.jpg",
+//     title: "Water Pollution",
+//     desc: `Contamination of water bodies (rivers, lakes, oceans) by pollutants like chemicals, sewage, and waste.
+//     Causes include industrial runoff, agricultural pesticides, and improper waste disposal.
+//     Consequences: compromised aquatic ecosystems, harm to human health, and reduced access to clean water.`,
+//   },
+//   {
+//     id: 3,
+//     url: "/assets/Pollution Types Images/Land Pollution.jpg",
+//     title: "Land Pollution",
+//     desc: `Degradation of land quality due to various pollutants, including hazardous waste, litter, and soil erosion.
+//     Activities like mining, improper disposal of waste, and deforestation contribute.
+//     Impacts: soil infertility, loss of biodiversity, and impaired agricultural productivity.`,
+//   },
+//   {
+//     id: 4,
+//     url: "/assets/Pollution Types Images/Noise Pollution.jpg",
+//     title: "Noise Pollution",
+//     desc: `Excessive and disruptive levels of noise in the environment, often from urbanization and transportation.
+//     Sources include traffic, construction, and industrial machinery.
+//     Adverse effects: stress, hearing impairment, and sleep disturbances.`,
+//   },
+//   {
+//     id: 5,
+//     url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
+//     title: "Radioactive Pollution",
+//     desc: `Presence of radioactive materials in the environment, resulting from nuclear accidents, nuclear power plants, or improper disposal of radioactive waste.
+//     Can lead to radiation exposure and health risks like cancer and genetic mutations.
+//     Requires strict containment and disposal measures to prevent harm.`,
+//   },
+
+// ];
+
 const cards = [
   {
+
     id: 1,
     url: "/assets/Pollution Types Images/Air Pollution.jpg",
     title: "Air Pollution",
@@ -159,6 +217,6 @@ const cards = [
     url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
     title: "Radioactive Pollution",
     desc: `Radioactive pollution results from the release of radioactive materials, like nuclear accidents or improper disposal, posing severe health risks and environmental contamination`,
-  },
 
-];
+  }
+  ]

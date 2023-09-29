@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Box,
   Center,
-  Flex,
   FormLabel,
   List,
   Text,
@@ -24,37 +23,6 @@ function Quiz() {
   const [selectedOption, setSelectedOption] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [score, setScore] = useState(0);
-  const [gameSounds, setGameSounds] = useState(null);
-  const [audioLoaded, setAudioLoaded] = useState(false);
-
-  const loadAudioFiles = async () => {
-    const sounds = {
-      click: new Audio("assets/Quiz Assets/Click.mp3"),
-      lost: new Audio("assets/Game Sounds/Lost.mp3"),
-      try: new Audio("assets/Quiz Assets/Try.mp3"),
-      victory: new Audio("assets/Quiz Assets/Victory.mp3"),
-    };
-
-    const loadPromises = Object.values(sounds).map(
-      (audio) =>
-        new Promise((resolve, reject) => {
-          audio.addEventListener("canplaythrough", () => resolve(audio));
-          audio.addEventListener("error", () =>
-            reject(new Error("Error loading audio."))
-          );
-        })
-    );
-
-    try {
-      await Promise.all(loadPromises);
-      setGameSounds(sounds);
-      setAudioLoaded(true);
-
-      fetchQuizData();
-    } catch (error) {
-      console.error("Error loading audio:", error);
-    }
-  };
 
   const fetchQuizData = () => {
     fetch("/quiz.json")
@@ -81,16 +49,8 @@ function Quiz() {
   };
 
   useEffect(() => {
-    loadAudioFiles();
+    fetchQuizData();
   }, []);
-
-  const playClickSound = () => {
-    if (gameSounds && gameSounds.click) {
-      gameSounds.click.play().catch((error) => {
-        console.error("Error playing audio:", error);
-      });
-    }
-  };
 
   const handleAnswerSubmit = (selectedOption) => {
     const currentQuestion = questions[currentIndex];
@@ -106,7 +66,6 @@ function Quiz() {
   };
 
   const handleBackClick = () => {
-    playClickSound();
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
@@ -144,40 +103,6 @@ function Quiz() {
   };
 
   const showAlertDialog = () => {
-    if (audioLoaded) {
-      if (score === 0) {
-        if (gameSounds && gameSounds.lost) {
-          gameSounds.lost.play().catch((err) => {
-            console.error("Error playing audio:", err);
-          });
-        }
-      } else if (score >= 1 && score <= 3) {
-          if (gameSounds && gameSounds.lost) {
-            gameSounds.lost.play().catch((err) => {
-              console.error("Error playing audio:", err);
-            });
-          }
-      } else if (score >= 4 && score <= 6) {
-        if (gameSounds && gameSounds.try) {
-          gameSounds.try.play().catch((err) => {
-            console.error("Error playing audio:", err);
-          });
-        }
-      } else if (score >= 7 && score <= 9) {
-        if (gameSounds && gameSounds.try) {
-          gameSounds.try.play().catch((err) => {
-            console.error("Error playing audio:", err);
-          });
-        }
-      } else {
-        if (gameSounds && gameSounds.victory) {
-          gameSounds.victory.play().catch((err) => {
-            console.error("Error playing audio:", err);
-          });
-        }
-      }
-    }
-
     onOpen();
   };
 
