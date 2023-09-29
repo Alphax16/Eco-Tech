@@ -13,6 +13,7 @@ _router.post("/api/ai/oil-spill-detector", apicontroller.oilSpillDetector);
 _router.post("/api/ai/noise-pollution-detector", apicontroller.noisePollutionDetector);
 
 _router.post("/api/ai/fire-detector", apicontroller.firedetector);
+_router.post("/api/ai/aqi-predictor", apicontroller.aqipredictor);
 
 
 module.exports = _router;
