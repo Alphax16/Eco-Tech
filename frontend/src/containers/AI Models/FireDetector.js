@@ -88,6 +88,16 @@ const  FireDetector = () => {
   return (
     <div>
       <Box p={32} h="max-content" bg="#12504B" color="#fff">
+      <Box textAlign={'center'}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          Fire Detection
+        </Text>
+        </Box>
         <Center>
           <div
             style={{
