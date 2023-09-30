@@ -14,7 +14,7 @@ const ModelCards = () => {
     {
       title: "Water Potability Prediction",
       imageSrc: "assets/waterpollution.jpg",
-      description: `The AI model focuses upon analyzing water samples to ensure safety for consumption. Machine learning assesses pH, turbidity, and minerals, aiding public health decisions.`,
+      description: `It focuses upon analyzing water samples to ensure safety for consumption. Machine learning assesses pH, turbidity, and minerals, aiding public health decisions.`,
       linkTo: "/models/water-potability-predictor"
     },
     {
@@ -26,7 +26,7 @@ const ModelCards = () => {
     {
       title: "Noise Pollution Detection",
       imageSrc: "assets/NoisePollution.jpg",
-      description: `A classic Mathematical approach based algorithm for detecting Noise Pollution levels using Audio Processing and then classifying it as a category of 'Noise' depending upon the region and time`,
+      description: `A classic Mathematical approach based algorithm for detecting Noise Pollution levels using Audio Processing and then classifying it as a category of 'Noise' depending upon the region and time.`,
       linkTo: "/models/noise-pollution-detector"
     },
     {

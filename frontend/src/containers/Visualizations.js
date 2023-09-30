@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Plot from "../components/Plot";
-import { Box, Flex } from "@chakra-ui/react";
+import { Heading, Flex, VStack } from "@chakra-ui/react";
 
 
 function Visualizations() {
-    const [treeStats, setTreeStats] = useState([]);
+  const [treeStats, setTreeStats] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-            const response = await axios.post("http://127.0.0.1:5000/api/tree-cover");
-                console.log(response.data);
-                setTreeStats(response.data);
-            } catch (err) {
-                console.error("Error fetching 'tree-cover' API data:", err);
-            }
-        };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post("http://127.0.0.1:5000/api/tree-cover");
+        console.log(response.data);
+        setTreeStats(response.data);
+      } catch (err) {
+        console.error("Error fetching 'tree-cover' API data:", err);
+      }
+    };
 
-        fetchData();
-    }, []);
+    fetchData();
+  }, []);
 
-    return (
-        <Flex py={'16'} bg={'#12504B'}>
-        {/* <div style={{display: 'flex', justifyContent: 'center'}}> */}
-            {/* <div>Plot:</div> */}
-            <Plot data={treeStats} />
-        {/* </div> */}
-        </Flex>
-    )
+  return (
+    <Flex
+      justify="center"
+      align="center"
+      minH="100vh"
+      bg="#12504B"
+    >
+      <VStack spacing={16} align="center">
+        <Heading
+          fontSize={{ base: "2xl", sm: "4xl" }}
+          fontWeight="bold"
+          color="white"
+          marginTop="-10%"
+        >
+          Tree Coverage Area (in Sq. kilometers) Time Series Plots
+        </Heading>
+        <Plot data={treeStats} width={'80vw'} />
+      </VStack>
+    </Flex>
+  );
 }
 
 export default Visualizations;

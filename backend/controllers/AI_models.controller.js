@@ -1,6 +1,7 @@
 const runPythonScript = require("../utils/pythonScriptRunner");
 const cloudinary = require("../config/cloudinary");
 const fileupload = require("express-fileupload");
+const { toTitleCase } = require("../utils/responseFormatter");
 
 
 const waterPotabilityPredictor = async (req, res) => {
@@ -22,7 +23,9 @@ const waterPotabilityPredictor = async (req, res) => {
   const result = await runPythonScript(scriptPath, cmdLineArgs);
   console.log('Script Response:', result);
 
-  res.send(result);
+  const resultFormatted = toTitleCase(result);
+
+  res.send(resultFormatted);
 };
 
 
@@ -112,7 +115,7 @@ const firedetector = async (req, res)=>{
 
     const cloudinaryURL = cloudinaryResponse.secure_url;
 
-    const scriptPath = "./python-models/NoisePollutionDetector.py";
+    const scriptPath = "./python-models/ForestFireDetector.py";
     const cmdLineArgs = `${cloudinaryURL}`;
 
     console.log('Command line arguments:', cmdLineArgs);
