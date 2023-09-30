@@ -75,5 +75,5 @@ def main():
     except Exception as ex:
         print('Python Exception:', ex)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
