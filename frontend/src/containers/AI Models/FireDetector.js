@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, Center, Image, Input, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 
 const  FireDetector = () => {
   const [file, setSelectedFile] = useState(null);
@@ -56,7 +56,12 @@ const  FireDetector = () => {
         }
       );
       console.log("File uploaded:", response.data);
-      alert(response.data.success);
+     
+      Swal.fire({
+        title: response.data.url,
+
+        icon: "success",
+      });
 
       setResImgURL(response.data.url);
     } catch (error) {

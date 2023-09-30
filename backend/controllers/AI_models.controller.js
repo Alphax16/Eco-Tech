@@ -78,7 +78,7 @@ const oilSpillDetector = async (req, res) => {
 
 const noisePollutionDetector = async (req, res) => {
   try {
-    const file = req.files.file;
+    const file = req.files.audio;
     const { areaType, dayTime } = req.body;
     
     console.log('Req.files value:', req.files);

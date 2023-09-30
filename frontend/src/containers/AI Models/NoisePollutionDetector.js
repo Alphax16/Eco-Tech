@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-import { Box, Button, Text, Flex } from "@chakra-ui/react";
+import { Box, Button, Text, Flex, Select } from "@chakra-ui/react";
 import axios from "axios";
 import AudioVisualizer from "../../components/AudioVisualizer";
-
+import Swal from "sweetalert2";
 
 const NoisePollutionDetector = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -10,6 +10,29 @@ const NoisePollutionDetector = () => {
   const audioRecorderRef = useRef(null);
   const [showRecording, setShowRecording] = useState(true);
   const [showFileInput, setShowFileInput] = useState(true);
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+  const [year, setYear] = useState("");
+  const [ampm, setAmPm]= useState("");
+  const [areaType, setareaType]= useState("");
+  
+  const generateHourOptions = () => {
+    const hours = [];
+    for (let i = 1; i <= 12; i++) {
+      hours.push(i.toString().padStart(2, "0"));
+    }
+    return hours;
+  };
+
+  const generateMinuteOptions = () => {
+    const minutes = [];
+    for (let i = 0; i <= 59; i++) {
+      minutes.push(i.toString().padStart(2, "0"));
+    }
+    return minutes;
+  };
+
+
 
   const startRecording = async () => {
     setIsRecording(true);
@@ -60,9 +83,11 @@ const NoisePollutionDetector = () => {
   };
 
   const handleUpload = async () => {
-    if (audioBlob) {
+    const selectedDate = `${hour}:${minute} ${ampm}`;
       const formData = new FormData();
       formData.append("audio", audioBlob);
+      formData.append('areaType', areaType)
+      formData.append('dayTime', selectedDate)
 
       try {
         const response = await axios.post(
@@ -75,11 +100,15 @@ const NoisePollutionDetector = () => {
           }
         );
         console.log("Audio uploaded:", response.data);
-        alert(response.data.success);
+        Swal.fire({
+          title: response.data.url,
+  
+          icon: "success",
+        }); 
       } catch (err) {
         console.error("Error uploading audio:", err);
       }
-    }
+    
   };
 
   const handleDrop = (e) => {
@@ -110,7 +139,78 @@ const NoisePollutionDetector = () => {
   return (
     <Box p={32} h="max-content" bg="#12504B" color="#fff">
       <Flex direction="column" align="center">
-       
+        <Flex>
+      <Box>
+        <Select
+
+          placeholder="Hour"
+          value={hour}
+          onChange={(e) => setHour(e.target.value)}
+          color={'black'}
+          background={'white'}
+          
+        >
+          {generateHourOptions().map((d) => (
+            <option key={d} value={d}>
+              {d}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Box mx={2}>
+        <Select
+          placeholder="Minute"
+          value={minute}
+          onChange={(e) => setMinute(e.target.value)}
+          color={'black'}
+          background={'white'}
+        >
+          {generateMinuteOptions().map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Box mx={2}>
+        <Select
+          placeholder="Time of day"
+          value={ampm}
+          onChange={(e) => setAmPm(e.target.value)}
+          color={'black'}
+          background={'white'}
+        >
+         
+            <option value='am'>
+              AM
+            </option>
+            <option value='pm'>
+              PM
+            </option>
+        
+        </Select>
+      </Box>
+      </Flex>
+      <Box mx={2} my={'2'}>
+        <Select
+          placeholder="Area "
+          value={areaType}
+          onChange={(e) => setareaType(e.target.value)}
+          color={'black'}
+          background={'white'}
+        >
+         
+            <option value='industrial'>
+            Industrial
+            </option>
+            <option value='commercial'>
+            Commercial
+            </option>
+            <option value='residential'>
+            Residential
+            </option>
+        </Select>
+      </Box>
         {showRecording && isRecording && (
           <>
             <Button colorScheme="red" onClick={stopRecording} mt={2}>
@@ -127,9 +227,27 @@ const NoisePollutionDetector = () => {
               onChange={handleFileChange}
               style={{ display: "none" }}
             />
-            <Button
+           
+          </>
+        )}
+        
+        <div
+          onDrop={handleDrop}
+          onDragOver={(e) => e.preventDefault()}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            border: "2px dashed #ccc",
+            padding: "20px",
+            marginTop: "20px",
+            textAlign: "center",
+            cursor: "pointer",
+          }}
+          
+        >
+           <Button
               colorScheme="teal"
-              mt={2}
+              my={6}
               onClick={() => {
                 setShowRecording(false);
                 document.querySelector('input[type="file"]').click();
@@ -137,32 +255,19 @@ const NoisePollutionDetector = () => {
             >
               Choose Audio File
             </Button>
-          </>
-        )}
-        {!showRecording && !showFileInput && audioBlob && (
-          <Button colorScheme="teal" onClick={handleUpload} mt={2}>
-            Upload Audio
-          </Button>
-        )}
-        <div
-          onDrop={handleDrop}
-          onDragOver={(e) => e.preventDefault()}
-          style={{
-            border: "2px dashed #ccc",
-            padding: "20px",
-            marginTop: "20px",
-            textAlign: "center",
-            cursor: "pointer",
-          }}
-        >
           Drag and drop an audio file here
         </div>
         {audioBlob && <AudioVisualizer link={URL.createObjectURL(audioBlob)} />}
         {audioBlob && (
+          <Button colorScheme="teal" onClick={handleUpload} mt={2}>
+            Upload Audio
+          </Button>
+        )}
+        {/* {audioBlob && ( 
           <Button colorScheme="teal" onClick={handleDetect} mt={2}>
             Detect
           </Button>
-        )}
+        )} */}
       </Flex>
     </Box>
   );
