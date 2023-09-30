@@ -81,25 +81,35 @@ const OilSpillDetector = () => {
   };
 
   return (
-    <div>
+    
       <Box p={32} h="max-content" bg="#12504B" color="#fff">
+        <Box textAlign={'center'}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          Oil Spill Detection 
+        </Text>
+        </Box>
         <Center>
-          <div
-            style={{
-              border: "2px dashed #ccc",
-              padding: "40px",
-              textAlign: "center",
-              cursor: "pointer",
-              maxWidth: "400px",
-              backgroundColor: "#12504B",
-              color: "#fff",
-            }}
+           
+          <Box
+            
+            border="2px dashed #ccc"
+            padding="40px"
+            textAlign="center"
+            cursor="pointer"
+            maxWidth="400px"
+            backgroundColor="#12504B"
+            color="#fff"
             onDrop={handleDrop}
             onDragOver={(e) => e.preventDefault()}
           >
             <Box
               w="300px"
-              h={{ base: "150px", lg: "250px" }}
+              h={{ base: "150px", lg: "250px",md: "200px" }}
               mt={4}
             >
               {imagePreview ? (!resImgURL ? (
@@ -160,10 +170,10 @@ const OilSpillDetector = () => {
                 />
               </div>
             )} */}
-          </div>
+          </Box>
         </Center>
       </Box>
-    </div>
+   
   );
 };
 

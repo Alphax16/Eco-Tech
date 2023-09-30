@@ -51,6 +51,16 @@ function AqiPredictor() {
 
   return (
     <Box p={32} h="100vh" bg="#12504B">
+         <Box textAlign={'center'}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          AQI Prediction
+        </Text>
+        </Box>
         <Center>
     <Flex>
         

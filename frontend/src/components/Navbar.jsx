@@ -86,9 +86,16 @@ const Navbar = () => {
               display={isLargerScreen ? "block" : "none"}
             />
          ) : (
-            <Button onClick={handleGoBack} textDecoration="none" backgroundColor="teal" color="white" >
-              Back
-            </Button>
+            isLargerScreen && (
+                <Button
+                  onClick={handleGoBack}
+                  textDecoration="none"
+                  backgroundColor="teal"
+                  color="white"
+                >
+                  Back
+                </Button>
+              )
           )}
             <IconButton
             size={"sm"}
