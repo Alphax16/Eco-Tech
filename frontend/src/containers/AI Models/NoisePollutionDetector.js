@@ -138,6 +138,16 @@ const NoisePollutionDetector = () => {
 
   return (
     <Box p={32} h="max-content" bg="#12504B" color="#fff">
+         <Box textAlign={'center'}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          Noise Pollution Detection
+        </Text>
+        </Box>
       <Flex direction="column" align="center">
         <Flex>
       <Box>

@@ -51,58 +51,70 @@ function AqiPredictor() {
 
   return (
     <Box p={32} h="100vh" bg="#12504B">
-      <Center>
-        <Flex>
-          <Box>
-            <Select
-              placeholder="Day"
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-              color={"black"}
-              background={"white"}
-            >
-              {generateDayOptions().map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </Select>
-          </Box>
-          <Box mx={2}>
-            <Select
-              placeholder="Month"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-              color={"black"}
-              background={"white"}
-            >
-              {generateMonthOptions().map((m) => (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              ))}
-            </Select>
-          </Box>
-          <Box>
-            <Select
-              placeholder="Year"
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              color={"black"}
-              background={"white"}
-            >
-              {generateYearOptions().map((y) => (
-                <option key={y} value={y}>
-                  {y}
-                </option>
-              ))}
-            </Select>
-          </Box>
-          <Button ml={2} colorScheme="teal" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </Flex>
-      </Center>
+         <Box textAlign={'center'}>
+        <Text
+          fontSize={{ base: "xl", lg: "4xl" }}
+          fontWeight={"bold"}
+          my={"4"}
+          color={"#fff"}
+        >
+          AQI Predictor
+        </Text>
+        </Box>
+        <Center>
+    <Flex>
+        
+      <Box>
+        <Select
+          placeholder="Day"
+          value={day}
+          onChange={(e) => setDay(e.target.value)}
+          color={'black'}
+          background={'white'}
+          
+        >
+          {generateDayOptions().map((d) => (
+            <option key={d} value={d}>
+              {d}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Box mx={2}>
+        <Select
+          placeholder="Month"
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+          color={'black'}
+          background={'white'}
+        >
+          {generateMonthOptions().map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Box>
+        <Select
+          placeholder="Year"
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+          color={'black'}
+          background={'white'}
+        >
+          {generateYearOptions().map((y) => (
+            <option key={y} value={y}>
+              {y}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Button ml={2} colorScheme="teal" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Flex>
+    </Center>
     </Box>
   );
 }
