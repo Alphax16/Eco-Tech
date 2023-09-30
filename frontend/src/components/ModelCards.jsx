@@ -45,12 +45,12 @@ const ModelCards = () => {
   
 
   return (
-    <Box py={'16'} ref={ref} bg={'#12504B'}>
+    <Box py={'16'} ref={ref} bg={'#12504B'} >
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading py={'4'} fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'} color={'white'}>
           AI Models
         </Heading>
-        <Text color={'white'} fontSize={{ base: 'sm', sm: 'lg' }}>
+        <Text color={'white'} fontSize={{ base: 'sm', sm: 'lg' }} className='models'>
           These are the Machine Learning Models that will help us understand better about ecotech what we are doing wrong and what can be improved
         </Text>
       </Stack>

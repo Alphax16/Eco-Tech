@@ -12,17 +12,24 @@ function Tour() {
     // Define steps
     {
       target: "body",
-      content: "This tab contains all features of the webapp",
+      content: "This is a quick Feature Demo for the website  ",
       placement: "center",
     },
     {
       target: ".navbox",
       content: "This tab contains all features of the webapp",
     },
+    
+    
     {
       target: ".facts",
       content: "Click here to get facts related to Environment",
     },
+    {
+      target: ".models",
+      content: "These are all the AI Models",
+    },
+    
     // {
     //   target: buttonRef.current,
     //   content: "This is a Chakra UI Button element.",

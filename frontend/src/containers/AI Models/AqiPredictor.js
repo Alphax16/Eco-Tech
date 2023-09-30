@@ -1,6 +1,8 @@
 import { Box, Flex, Select, Button, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 function AqiPredictor() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
@@ -12,7 +14,11 @@ function AqiPredictor() {
     axios.post("http://localhost:5000/api/ai/aqi-predictor", { date: selectedDate })
       .then((response) => {
     
-       alert(response.data);
+        Swal.fire({
+          title: response.data,
+
+          icon: "success",
+        });
       })
       .catch((error) => {
         
