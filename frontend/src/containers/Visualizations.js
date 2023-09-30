@@ -22,7 +22,7 @@ function Visualizations() {
     }, []);
 
     return (
-        <Flex py={'16'} bg={'#12504B'}>
+        <Flex py={'16'} bg={'#12504B'} h={'100vh'}>
         {/* <div style={{display: 'flex', justifyContent: 'center'}}> */}
             {/* <div>Plot:</div> */}
             <Plot data={treeStats} />
