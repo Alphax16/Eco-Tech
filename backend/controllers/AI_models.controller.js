@@ -1,7 +1,7 @@
 const runPythonScript = require("../utils/pythonScriptRunner");
 const cloudinary = require("../config/cloudinary");
 const fileupload = require("express-fileupload");
-const { toTitleCase } = require("../utils/responseFormatter");
+const { toTitleCase, getNextElementAfterLastDelimiter, removeEscapeSequences } = require("../utils/responseFormatter");
 
 
 const waterPotabilityPredictor = async (req, res) => {
@@ -40,9 +40,14 @@ const aqipredictor = async (req, res) => {
   const cmdLineArgs = `${date}`;
 
   const result = await runPythonScript(scriptPath, cmdLineArgs);
-  console.log('Script Response:', result);
 
-  res.send(result);
+  console.log('Script Response(Result):', result);
+
+  const resultFormatted = removeEscapeSequences(getNextElementAfterLastDelimiter(result));
+
+  console.log('Script Response(Result) Formatted:', resultFormatted);
+
+  res.send(resultFormatted);
 };
 
 const oilSpillDetector = async (req, res) => {

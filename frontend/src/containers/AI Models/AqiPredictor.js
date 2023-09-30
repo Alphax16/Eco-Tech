@@ -1,6 +1,8 @@
 import { Box, Flex, Select, Button, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
+
+
 function AqiPredictor() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
