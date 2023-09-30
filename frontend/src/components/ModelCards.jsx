@@ -12,15 +12,21 @@ const ModelCards = () => {
 
   const cardData = [
     {
+      title: "AQI Prediction",
+      imageSrc: "assets/aqi.jpg",
+      description: `AQI (Air Quality Index) predictor uses time series data analysis to forecast air quality, providing information for health and pollution management. Predicts PM2.5 levels.`,
+      linkTo: "/models/Aqi-predictor"
+    },
+    {
       title: "Water Potability Prediction",
       imageSrc: "assets/waterpollution.jpg",
-      description: `It focuses upon analyzing water samples to ensure safety for consumption. Machine learning assesses pH, turbidity, and minerals, aiding public health decisions.`,
+      description: `It focuses upon analyzing water samples to ensure safety for consumption. Machine learning assesses pH, turbidity, and minerals etc. factors, aiding public health decisions.`,
       linkTo: "/models/water-potability-predictor"
     },
     {
       title: "Oil Spill Detection",
       imageSrc: "assets/OilSpill.jpg",
-      description: `Its and Image Processing AI Model for detecting oil spills, safeguarding marine environments. Utilizes innovative methods to ensure prompt response and containment.`,
+      description: `It uses an Image Processing AI Model for detecting and segmenting oil spills, safeguarding marine environments and life. Utilizes innovative methods to ensure prompt response and containment.`,
       linkTo: "/models/oil-spill-detector"
     },
     {
@@ -30,16 +36,10 @@ const ModelCards = () => {
       linkTo: "/models/noise-pollution-detector"
     },
     {
-      title: "Fire Detection",
+      title: "Conflagration Detection",
       imageSrc: "assets/fire.png",
-      description: `State-of-the-art fire detection systems for early and accurate fire alerts. Utilizes AI and image processing for rapid response, minimizing damage and ensuring safety.`,
+      description: `State-of-the-art fire & smoke detection systems for early and accurate fire alerts. Utilizes AI and image processing techniques for rapid response, minimizing damage and ensuring safety.`,
       linkTo: "/models/fire-detector"
-    },
-    {
-      title: "AQI Predictor",
-      imageSrc: "assets/aqi.jpg",
-      description: `AQI (Air Quality Index) predictor uses data analysis and factors to forecast air quality, providing information for health and pollution management.`,
-      linkTo: "/models/Aqi-predictor"
     },
   ]
   
