@@ -1,4 +1,4 @@
-import { Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, useDisclosure, Stack, Image, useToast, } from "@chakra-ui/react";
+import { Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, useDisclosure, Stack, Image, useToast, useMediaQuery, } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import Link and useLocation
@@ -19,7 +19,8 @@ const Navbar = () => {
     const toast = useToast();
     
     const { isOpen, onOpen, onClose } = useDisclosure();
-    
+    const [isLargerScreen] = useMediaQuery("(min-width: 768px)"); 
+
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -82,6 +83,7 @@ const Navbar = () => {
                 transition: "filter 0.5s ease",
                 filter: "hue-rotate(360deg)"
               }}
+              display={isLargerScreen ? "block" : "none"}
             />
          ) : (
             <Button onClick={handleGoBack} textDecoration="none" backgroundColor="teal" color="white" >

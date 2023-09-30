@@ -100,9 +100,12 @@ const HeroSection =()=> {
               animate={{  x: 0 }}
               
               transition={{ duration: 1, origin: 1, delay:0.9 }}  color={'white'}>
-            Snippy is a rich coding snippets app that lets you create your own code
-            snippets, categorize them, and even sync them in the cloud so you can use them
-            anywhere. All that is free!
+        EcoTech, the fusion of technology and sustainability, promises a brighter future. From renewable energy to smart recycling, it's reshaping how we coexist with our planet. With green energy, eco-friendly gadgets, and innovative solutions.
+
+
+
+
+
           </MotionText>
           <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
             <Button

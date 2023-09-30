@@ -82,7 +82,7 @@ const OilSpillDetector = () => {
 
   return (
     <div>
-      <Box p={32} h="100vh" bg="#12504B" color="#fff">
+      <Box p={32} h="max-content" bg="#12504B" color="#fff">
         <Center>
           <div
             style={{
