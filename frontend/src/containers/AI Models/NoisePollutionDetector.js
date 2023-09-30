@@ -60,7 +60,7 @@ const NoisePollutionDetector = () => {
   };
 
   const handleUpload = async () => {
-    if (audioBlob) {
+    
       const formData = new FormData();
       formData.append("audio", audioBlob);
 
@@ -79,7 +79,7 @@ const NoisePollutionDetector = () => {
       } catch (err) {
         console.error("Error uploading audio:", err);
       }
-    }
+    
   };
 
   const handleDrop = (e) => {

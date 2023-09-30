@@ -23,7 +23,7 @@ const HeroSection =()=> {
   return (
     <Box bg={'#12504B'} className='joyride-start' >
     
-    <MotionContainer maxW={'10xl'}  height={'100vh'} backgroundImage="url('/assets/hero_background.jpg')"
+    <MotionContainer maxW={'10xl'}  height={{lg: '100vh', sm: '100vh', md: '50vh'}} backgroundImage="url('/assets/hero_background.jpg')"
     backgroundSize="cover"
     bgRepeat={'no-repeat'}
     initial={{ opacity: 0 }} 

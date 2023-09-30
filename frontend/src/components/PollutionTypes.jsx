@@ -59,6 +59,7 @@ const Card = ({ card }) => {
 
   return (
     <Box
+
       key={card.id}
       h="600px"
       w="450px"
@@ -70,7 +71,7 @@ const Card = ({ card }) => {
       rounded={'md'}
       p={6}
       transition="box-shadow 0.3s, transform 0.3s"
-      _hover={{ transform: "scale(1.05)", }}
+      _hover={{ transform: "scale(1.05)", cursor: 'pointer'}}
       onClick={handleCardClick}
     >
       <Center py={12}>
@@ -129,7 +130,7 @@ const Card = ({ card }) => {
             <Text textDecoration={'line-through'} color={'gray.600'}>
               $199
             </Text> */}
-            <Text color={'gray.600'}>
+            <Text color={'gray.600'} textAlign={'justify'}>
               {card.desc}
             </Text>
           </Stack>
@@ -219,7 +220,7 @@ const cards = [
     id: 5,
     url: "/assets/Pollution Types Images/Radioactive Pollution.jpg",
     title: "Radioactive Pollution",
-    desc: `Presence of radioactive materials from nuclear accidents and power plants. Can lead to radiation exposure and health risks like cancer. Requires strict containment measures to prevent harm.`,
+    desc: `Presence of radioactive materials from nuclear accidents and power plants. Can lead to radiation and health risks like cancer. Requires strict containment measures to prevent harm.`,
     redirect: "https://en.wikipedia.org/wiki/Radioactive_contamination",
   },
 ]
