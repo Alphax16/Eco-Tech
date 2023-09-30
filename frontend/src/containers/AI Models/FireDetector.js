@@ -82,7 +82,7 @@ const  FireDetector = () => {
 
   return (
     <div>
-      <Box p={32} h="100vh" bg="#12504B" color="#fff">
+      <Box p={32} h="max-content" bg="#12504B" color="#fff">
         <Center>
           <div
             style={{
@@ -118,7 +118,7 @@ const  FireDetector = () => {
                 </>
               )}
             </Box>
-            <Text textAlign="center" mt={2}>
+            <Text textAlign="center">
               Or
             </Text>
             <Input
