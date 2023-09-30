@@ -6,4 +6,14 @@ function toTitleCase(str) {
     return words.join(' ');
 }
 
-module.exports = { toTitleCase };
+function getNextElementAfterLastDelimiter(inputString, delimiter='\n') {
+    var lines = inputString.split(delimiter);
+    console.log(lines);
+    return lines[lines.length - 2];
+}
+
+function removeEscapeSequences(inputString) {
+    return inputString.replace(/\\[bfnrtv'"\\]/g, '');
+}
+
+module.exports = { toTitleCase, getNextElementAfterLastDelimiter, removeEscapeSequences };

@@ -1,6 +1,7 @@
 import numpy as np
+import tensorflow as tf
 from keras.models import load_model
-from keras.utils import disable_interactive_logging
+# from keras.utils import disable_interactive_logging
 from pickle import load
 from datetime import datetime
 from sys import argv
@@ -42,7 +43,8 @@ def main():
     
     warnings.filterwarnings('ignore')
     
-    disable_interactive_logging()
+    # disable_interactive_logging()
+    tf.get_logger().setLevel('INFO')
     environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
     
 

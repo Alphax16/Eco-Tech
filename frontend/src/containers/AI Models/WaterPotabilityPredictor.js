@@ -44,7 +44,7 @@ const WaterPotabilityPredictor = () => {
       setTimeout(() => {
         setLoading(false);
         Swal.fire({
-          title: response.data,
+          title: `${response.data} Water Sample`,
   
           icon: "success",
         }); 
@@ -82,7 +82,7 @@ const WaterPotabilityPredictor = () => {
           my={"4"}
           color={"#fff"}
         >
-          Water Potability Prediction
+          Water Potability Predictor
         </Text>
         <form style={{ width: "40%", color: "#fff" }} onSubmit={handlesubmit}>
           <Input

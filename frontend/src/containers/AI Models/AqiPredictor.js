@@ -1,4 +1,4 @@
-import { Box, Flex, Select, Button, Center } from "@chakra-ui/react";
+import { Box, Flex, Text, Select, Button, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -9,22 +9,22 @@ function AqiPredictor() {
   const [year, setYear] = useState("");
   const handleSubmit = () => {
     const selectedDate = `${day}-${month}-${year}`;
-    
-    
-    axios.post("http://localhost:5000/api/ai/aqi-predictor", { date: selectedDate })
+
+    axios
+      .post("http://localhost:5000/api/ai/aqi-predictor", {
+        date: selectedDate,
+      })
       .then((response) => {
-    
         Swal.fire({
-          title: response.data,
+          title: `PM2.5: ${response.data} µg/m³`,
 
           icon: "success",
         });
       })
       .catch((error) => {
-        
         console.error("Error:", error);
       });
-    }
+  };
   const generateDayOptions = () => {
     const days = [];
     for (let i = 1; i <= 31; i++) {
@@ -58,7 +58,7 @@ function AqiPredictor() {
           my={"4"}
           color={"#fff"}
         >
-          AQI Prediction
+          AQI Predictor
         </Text>
         </Box>
         <Center>
