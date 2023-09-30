@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Box, Button, Text, Flex, Select } from "@chakra-ui/react";
 import axios from "axios";
 import AudioVisualizer from "../../components/AudioVisualizer";
-
+import Swal from "sweetalert2";
 
 const NoisePollutionDetector = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -100,7 +100,11 @@ const NoisePollutionDetector = () => {
           }
         );
         console.log("Audio uploaded:", response.data);
-        alert(response.data.success);
+        Swal.fire({
+          title: response.data.url,
+  
+          icon: "success",
+        }); 
       } catch (err) {
         console.error("Error uploading audio:", err);
       }

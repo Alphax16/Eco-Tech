@@ -2,7 +2,7 @@ import { Box, Button, Center, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import { ThreeCircles } from "react-loader-spinner";
-
+import Swal from "sweetalert2";
 
 const WaterPotabilityPredictor = () => {
   const [loading, setLoading] = useState(false); // Track loading status
@@ -43,7 +43,11 @@ const WaterPotabilityPredictor = () => {
 
       setTimeout(() => {
         setLoading(false);
-        alert(response.data);
+        Swal.fire({
+          title: response.data,
+  
+          icon: "success",
+        }); 
         setResponseText(response.data);
         setShowResponse(true);
       }, 4000);
@@ -147,7 +151,7 @@ const WaterPotabilityPredictor = () => {
           />
           <Button type="submit">Get Predictions</Button>
         </form>
-        {showResponse && <p>{responseText}</p>}
+        {/* {showResponse && <p>{responseText}</p>} */}
       </Center>
     </Box>
   );
