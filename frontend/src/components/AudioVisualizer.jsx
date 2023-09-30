@@ -12,8 +12,11 @@ const AudioVisualizer = (props) => {
             container: audioRef.current,
         });
         audioTrack.load(props.link);
+        return () => {
+            audioTrack.destroy();
+          };
     }
-    })
+    },[props.link])
 
     return (<div style={{minWidth: "200px"}} className='audio' ref={audioRef}>
             </div>)
