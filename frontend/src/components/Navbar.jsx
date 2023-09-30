@@ -147,7 +147,7 @@ const Navbar = () => {
 
         {isOpen ? (
             <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
+            <Stack as={"nav"} spacing={4} background={'white'}>
                 {Links.map((link) => (
                 <Link
                     key={link.path}
@@ -155,7 +155,7 @@ const Navbar = () => {
                     style={{
                     textDecoration: "none",
                     backgroundColor:
-                        activeLink === link.path ? "#C1E836" : "transparent",
+                        activeLink === link.path ? "#C1E836" : "green",
                     color: activeLink === link.path ? "black" : "#fff",
                     }}
                     p={2}
