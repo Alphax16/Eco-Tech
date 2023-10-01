@@ -1,19 +1,26 @@
 import { Container, Stack, Flex, Box, Heading, Text, Button, Image, Icon, 
   IconButton, createIcon, IconProps, useColorModeValue,
-} from '@chakra-ui/react'
-import Navbar from './Navbar'
-import { motion } from 'framer-motion'
-import Tour from '../Tour'
-import { useState } from 'react'
-import { useTour } from '../context/TourContext'
+} from '@chakra-ui/react';
+import Navbar from './Navbar';
+import { motion } from 'framer-motion';
+import Tour from '../Tour';
+import { useState } from 'react';
+import { useTour } from '../context/TourContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const HeroSection =()=> {
   const { startTour, setStartTour } = useTour();
+  const navigate = useNavigate();
+
   const handleStartTourClick = () => {
     
     setStartTour(true);
   };
+
+  const handleGetStarted = () => {
+    navigate("/models");
+  }
 
   const MotionContainer = motion(Container);
   const MotionText = motion(Text);
@@ -116,9 +123,11 @@ const HeroSection =()=> {
               color= {'black'}
               bg={'#C1E836'}
               // _hover={{ bg: 'red.500' }}>
-              _hover={{ bg: 'green.200' }}>
+              _hover={{ bg: 'green.200' }}
+              onClick={handleGetStarted}
+            >
 
-              Get started
+              Get started !
             </Button>
             <Button
               rounded={'full'}
@@ -127,7 +136,7 @@ const HeroSection =()=> {
               px={6}
               onClick={handleStartTourClick}
               leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}>
-              How It Works
+              How It Works ?
               
             </Button>
           </Stack>

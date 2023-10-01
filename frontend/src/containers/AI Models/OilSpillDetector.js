@@ -137,7 +137,7 @@ const OilSpillDetector = () => {
             onDragOver={(e) => e.preventDefault()}
           >
             <Box
-              w="300px"
+              // w="300px"
               h={{ base: "150px", lg: "250px",md: "200px" }}
               mt={4}
             >
