@@ -2,7 +2,9 @@ import React, { useState, useRef } from "react";
 import { Box, Button, Text, Flex, Select } from "@chakra-ui/react";
 import axios from "axios";
 import AudioVisualizer from "../../components/AudioVisualizer";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Swal from "sweetalert2";
+
 
 const NoisePollutionDetector = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -15,6 +17,7 @@ const NoisePollutionDetector = () => {
   const [year, setYear] = useState("");
   const [ampm, setAmPm]= useState("");
   const [areaType, setareaType]= useState("");
+  const [isLoading, setIsLoading] = useState(false);
   
   const generateHourOptions = () => {
     const hours = [];
@@ -83,7 +86,8 @@ const NoisePollutionDetector = () => {
   };
 
   const handleUpload = async () => {
-    const selectedDate = `${hour}:${minute} ${ampm}`;
+    setIsLoading(true);
+    const selectedDate = `${hour}:${minute}${ampm}`;
       const formData = new FormData();
       formData.append("audio", audioBlob);
       formData.append('areaType', areaType)
@@ -100,13 +104,17 @@ const NoisePollutionDetector = () => {
           }
         );
         console.log("Audio uploaded:", response.data);
+        
+        setIsLoading(false);
+        
         Swal.fire({
-          title: response.data.url,
+          title: `Noise Limit Exceedance: ${response.data.result} dB.`,
   
           icon: "success",
         }); 
       } catch (err) {
         console.error("Error uploading audio:", err);
+        setIsLoading(false);
       }
     
   };
@@ -138,6 +146,7 @@ const NoisePollutionDetector = () => {
 
   return (
     <Box p={32} h="max-content" bg="#12504B" color="#fff">
+      <LoadingSpinner isOpen={isLoading} />
          <Box textAlign={'center'}>
         <Text
           fontSize={{ base: "xl", lg: "4xl" }}
@@ -153,13 +162,16 @@ const NoisePollutionDetector = () => {
       <Box>
         <Select
 
-          placeholder="Hour"
+          // placeholder="Hour"
           value={hour}
           onChange={(e) => setHour(e.target.value)}
           color={'black'}
           background={'white'}
           
         >
+          <option value="" disabled hidden>
+            Hour
+          </option>
           {generateHourOptions().map((d) => (
             <option key={d} value={d}>
               {d}
@@ -169,12 +181,15 @@ const NoisePollutionDetector = () => {
       </Box>
       <Box mx={2}>
         <Select
-          placeholder="Minute"
+          // placeholder="Minute"
           value={minute}
           onChange={(e) => setMinute(e.target.value)}
           color={'black'}
           background={'white'}
         >
+          <option value="" disabled hidden>
+            Minute
+          </option>
           {generateMinuteOptions().map((m) => (
             <option key={m} value={m}>
               {m}
@@ -184,13 +199,15 @@ const NoisePollutionDetector = () => {
       </Box>
       <Box mx={2}>
         <Select
-          placeholder="Time of day"
+          // placeholder="Time of day"
           value={ampm}
           onChange={(e) => setAmPm(e.target.value)}
           color={'black'}
           background={'white'}
         >
-         
+            <option value="" disabled hidden>
+              AM / PM
+            </option>
             <option value='am'>
               AM
             </option>
@@ -202,24 +219,20 @@ const NoisePollutionDetector = () => {
       </Box>
       </Flex>
       <Box mx={2} my={'2'}>
-        <Select
-          placeholder="Area "
-          value={areaType}
-          onChange={(e) => setareaType(e.target.value)}
-          color={'black'}
-          background={'white'}
-        >
-         
-            <option value='industrial'>
-            Industrial
-            </option>
-            <option value='commercial'>
-            Commercial
-            </option>
-            <option value='residential'>
-            Residential
-            </option>
-        </Select>
+      <Select
+        value={areaType}
+        onChange={(e) => setareaType(e.target.value)}
+        color="black"
+        background="white"
+      >
+        <option value="" disabled hidden>
+          Area Type
+        </option>
+        <option value="industrial">Industrial</option>
+        <option value="commercial">Commercial</option>
+        <option value="residential">Residential</option>
+      </Select>
+
       </Box>
         {showRecording && isRecording && (
           <>

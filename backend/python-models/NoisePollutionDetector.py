@@ -50,30 +50,33 @@ def check_noise_level(area_type, daytime, max_db):
     return exceedance, permissible_limit
 
 def main():
-    try:
-        area_type, daytime, audio_url = argv[1:]
+    if len(argv) != 4:
+        print("Usage: python script.py area_type daytime audio_url")
+    else:
+        try:
+            area_type, daytime, audio_url = argv[1:]
 
-        audio_data, sr = load_audio(audio_url)
-        # print(f'AUDIO DATA: {audio_data}, SAMPLING RATE: {sr}')
-        
-        plt = visualize_audio_waveform(audio_data, sr)
-        
-        plt_url = uploadPlotToCloudinary(plt)
-        
-        plt.close()
-        
-        max_db = calculate_max_sound_level(audio_data)
-        
-        # print('MAX_DB:', max_db)
-        
-        exceedance, permissible_limit = check_noise_level(area_type.lower(), True if daytime.lower().endswith('AM') else False, max_db)
+            audio_data, sr = load_audio(audio_url)
+            # print(f'AUDIO DATA: {audio_data}, SAMPLING RATE: {sr}')
+            
+            plt = visualize_audio_waveform(audio_data, sr)
+            
+            plt_url = uploadPlotToCloudinary(plt)
+            
+            plt.close()
+            
+            max_db = calculate_max_sound_level(audio_data)
+            
+            # print('MAX_DB:', max_db)
+            
+            exceedance, permissible_limit = check_noise_level(area_type.lower(), True if daytime.lower().endswith('AM') else False, max_db)
 
-        if exceedance > 0:
-            print(f"{exceedance:.2f}")
-        else:
-            print(f"{exceedance:0.00}")
-    except Exception as ex:
-        print('Python Exception:', ex)
+            if exceedance > 0:
+                print(f"{exceedance:.2f}")
+            else:
+                print(f"{exceedance:0.00}")
+        except Exception as ex:
+            print('Python Exception:', ex)
 
 if __name__ == '__main__':
     main()

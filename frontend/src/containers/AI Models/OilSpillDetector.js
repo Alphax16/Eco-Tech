@@ -1,29 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Center, Image, Input, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import Swal from "sweetalert2";
 
 
 const OilSpillDetector = () => {
   const [file, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [resImgURL, setResImgURL] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setSelectedFile(file);
+    if (file) {
+      setImagePreview(null);
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(file);
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImagePreview(reader.result);
+        setSelectedFile(file);
+      };
+      reader.readAsDataURL(file);
+      // setSelectedFile(file);
+    }
   };
 
   const handleUpload = () => {
     if (file) {
-      handleSubmit();
+      setLoading(true);
+      try {
+        handleSubmit().then((response) => {
+          setLoading(false);
+          Swal.fire({
+            title: "Segmentation successful!",
+            icon: "success",
+          });
+        });
+      } catch (err) {
+        console.error("Error uploading file:", err);
+        setLoading(false);
+      }
     }
   };
+
+  useEffect(() => {
+    console.log("Image preview updated:", imagePreview);
+  }, [imagePreview]);
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -38,8 +61,13 @@ const OilSpillDetector = () => {
   };
 
   const chooseImageButtonClick = () => {
-    document.getElementById("fileInput").click();
+    setImagePreview(null);
+    setResImgURL("");
+    const fileInput = document.getElementById("fileInput");
+    fileInput.value = null;
+    fileInput.click();
   };
+  
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -56,9 +84,10 @@ const OilSpillDetector = () => {
         }
       );
       console.log("File uploaded:", response.data);
-      alert(response.data.success);
+      setResImgURL(response.data.url + `?timestamp=${Date.now()}`);
+      // alert(response.data.success);
 
-      setResImgURL(response.data.url);
+      // setResImgURL(response.data.url);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
@@ -134,7 +163,7 @@ const OilSpillDetector = () => {
             <Input
               type="file"
               accept="image/*"
-              onChange={handleFileChange}
+              onChange={(e) => handleFileChange(e)}
               id="fileInput"
               display="none"
             />
@@ -170,6 +199,7 @@ const OilSpillDetector = () => {
                 />
               </div>
             )} */}
+            <LoadingSpinner isOpen={loading} />
           </Box>
         </Center>
       </Box>

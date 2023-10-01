@@ -1,50 +1,51 @@
-# import cloudinary
-# import cloudinary.uploader
-# from dotenv import load_dotenv
 import numpy as np
-import cv2
-from sys import argv
-from os import getenv, environ
+import tensorflow as tf
 from keras.models import load_model
-from keras.utils import disable_interactive_logging
+import cv2
 from PythonUtils.CloudinaryUtilizer import readImgFromURL
+from sys import argv
+from os import environ
 import warnings
 
 
-# # Load environment variables from .env
-# load_dotenv()
+def preProcessImageFromURL(cloudinary_url):
+    img = readImgFromURL(cloudinary_url)
+    if img is not None:
+        img_array = cv2.resize(img, (224, 224))
+        img_array = np.expand_dims(img_array, axis=0)
+        img_array = img_array / 255.0
+        return img_array
+    else:
+        return None
 
-# # Configure Cloudinary with your credentials
-# cloudinary.config(
-#     cloud_name = getenv('CLOUDNAME'),
-#     api_key = getenv('APIKEY'),
-#     api_secret = getenv('APISECRET')
-# )
+def predict_no_fire_from_url(cloudinary_url, threshold=0.1):
+    img_array = preProcessImageFromURL(cloudinary_url)
+    if img_array is not None:
+        autoencoder = load_model("./weights-pickles/ConflagrationClassifier.h5")
+        reconstructed_img = autoencoder.predict(img_array)
 
-# Upload an image to Cloudinary
-# result = cloudinary.uploader.upload("path_to_your_image.jpg", folder="Outputs/Oil_Spill_Detector")
+        mse = np.mean(np.square(img_array - reconstructed_img))
 
-# # Extract the URL of the uploaded image
-# image_url = result['secure_url']
+        has_fire = mse < threshold
 
-
-
+        return not has_fire
+    else:
+        return False
 
 def main():
-    warnings.filterwarnings('ignore')
+    warnings.filterwarnings('ignore', category=FutureWarning)
     
-    disable_interactive_logging()
-    environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+    tf.keras.utils.disable_interactive_logging()
+    tf.get_logger().setLevel('INFO')
+    environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     
-    model = load_model("./weights-pickles/ConflagrationClassifier.h5")
-    image = readImgFromURL(argv[-1])
-    # print('Image:', image)
-    # print('Image Shape:', image.shape)
-    img_resize = cv2.resize(image, (224, 224))
-    # print('Image Resize:', img_resize)
-    result = model.predict(np.array(img_resize))
-    # print('Result:', result)
-    print(result)
+    cloudinary_url = argv[-1]
+    result = predict_no_fire_from_url(cloudinary_url)
+
+    if result:
+        print("No Fire detected.")
+    else:
+        print("Fire Alert!")
 
 if __name__ == '__main__':
     main()

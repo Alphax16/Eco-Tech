@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Center, Image, Input, Text, Flex } from "@chakra-ui/react";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -7,6 +8,7 @@ const  FireDetector = () => {
   const [file, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [resImgURL, setResImgURL] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -21,6 +23,7 @@ const  FireDetector = () => {
 
   const handleUpload = () => {
     if (file) {
+      setLoading(true);
       handleSubmit();
     }
   };
@@ -66,6 +69,8 @@ const  FireDetector = () => {
       setResImgURL(response.data.url);
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -95,10 +100,11 @@ const  FireDetector = () => {
           my={"4"}
           color={"#fff"}
         >
-          Fire Detection
+          Conflagration Detection
         </Text>
         </Box>
         <Center>
+        <LoadingSpinner isOpen={loading} />
           <div
             style={{
               border: "2px dashed #ccc",
@@ -117,14 +123,9 @@ const  FireDetector = () => {
               h={{ base: "150px", lg: "250px" }}
               mt={4}
             >
-              {imagePreview ? (!resImgURL ? (
+              {imagePreview ? (
                 <Image maxW="100%" maxH="100%" src={imagePreview} alt="Preview" />
-              ) : (
-                  <div>
-                    <img src={resImgURL} alt="No Response-Img" style={{ margin: "2rem auto" }} />
-                    <Button colorScheme="teal" mt={2} onClick={downloadResImage}>Download</Button>
-                  </div>
-              )) : (
+               ) : (
                 <>
                   <img src="/assets/Dropboxlogo.png" alt="No-Img" />
                   <Text textAlign="center" mt={2}>
