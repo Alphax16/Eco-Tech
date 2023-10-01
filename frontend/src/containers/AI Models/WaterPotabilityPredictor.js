@@ -1,8 +1,10 @@
 import { Box, Button, Center, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
-import { ThreeCircles } from "react-loader-spinner";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Swal from "sweetalert2";
+// import { ThreeCircles } from "react-loader-spinner";
+
 
 const WaterPotabilityPredictor = () => {
   const [loading, setLoading] = useState(false); // Track loading status
@@ -59,7 +61,7 @@ const WaterPotabilityPredictor = () => {
 
   return (
     <Box bg={"#12504B"} py={"16"}>
-      {loading && (
+      {/* {loading && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <ThreeCircles
             height="100"
@@ -74,7 +76,8 @@ const WaterPotabilityPredictor = () => {
             middleCircleColor="#FF0000"
           />
         </div>
-      )}
+      )} */}
+      <LoadingSpinner isOpen={loading} />
       <Center flexDir={"column"}>
         <Text
           fontSize={{ base: "xl", lg: "4xl" }}
@@ -149,7 +152,10 @@ const WaterPotabilityPredictor = () => {
             placeholder="Turbidity"
             onChange={(e) => setTurbidity(e.target.value)}
           />
-          <Button type="submit">Get Predictions</Button>
+          {/* <Button type="submit">Get Predictions</Button> */}
+          <Center>
+            <Button type="submit" my={"2"}>Get Predictions</Button>
+          </Center>
         </form>
         {/* {showResponse && <p>{responseText}</p>} */}
       </Center>

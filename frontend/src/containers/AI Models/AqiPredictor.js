@@ -1,13 +1,19 @@
 import { Box, Flex, Text, Select, Button, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Swal from "sweetalert2";
+
 
 function AqiPredictor() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = () => {
+    setLoading(true); // Show the loading spinner when the form is submitted
+
     const selectedDate = `${day}-${month}-${year}`;
 
     axios
@@ -15,16 +21,18 @@ function AqiPredictor() {
         date: selectedDate,
       })
       .then((response) => {
+        setLoading(false); // Hide the loading spinner when the response is received
         Swal.fire({
           title: `PM2.5: ${response.data} µg/m³`,
-
           icon: "success",
         });
       })
       .catch((error) => {
+        setLoading(false); // Hide the loading spinner on error
         console.error("Error:", error);
       });
   };
+
   const generateDayOptions = () => {
     const days = [];
     for (let i = 1; i <= 31; i++) {
@@ -113,6 +121,7 @@ function AqiPredictor() {
       <Button ml={2} colorScheme="teal" onClick={handleSubmit}>
         Submit
       </Button>
+      <LoadingSpinner isOpen={loading} />
     </Flex>
     </Center>
     </Box>
