@@ -28,4 +28,9 @@ yarn-error.log*
 /ECO_ENV
 
 # AI Model Weights/Pickles files-
-/weights-pickles
+# /weights-pickles
+/weights-pickles/LSTM_TemperatureForecastingModel.h5
+/weights-pickles/Oil_Spill_Images_Binary_Classification_Model.h5
+/weights-pickles/SARIMAX_Indian_Surface_Temperature_Forecasting.pkl
+/weights-pickles/WaterPotability_Final.pkl
+
