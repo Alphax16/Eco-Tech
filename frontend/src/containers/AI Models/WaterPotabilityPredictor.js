@@ -28,7 +28,7 @@ const WaterPotabilityPredictor = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/api/ai/water-potability-predictor",
+        "http://localhost:5000/api/ai/water-potability-predictor",
         {
           ph,
           Hardness,
