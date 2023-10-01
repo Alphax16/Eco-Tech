@@ -1,4 +1,4 @@
-# AI-Driven Environmental Conservation System 
+# **Geekco**- AI-Driven Environmental Conservation System 
 
 ## Overview
 
@@ -13,8 +13,8 @@ Welcome to the AI-Driven Environmental Conservation System, a revolutionary plat
 ## Tech stacks
 
  - Python
- - Nodejs
- - Reactjs 
+ - Node.js
+ - React.js 
 
 
 ## Installation Guide
@@ -22,7 +22,7 @@ Welcome to the AI-Driven Environmental Conservation System, a revolutionary plat
 The installation is very straight forward but has prerequisites:
 The following language should be installed in the system
 
- 1. Nodejs
+ 1. Node.js
  2. Python 3
  
 ### Installation Steps: 
@@ -41,11 +41,18 @@ Follow the steps clearly to run the web app in your system
 ## External Libraries used
 
 
-|Front End                | Backend                         |  Python                       |
-|----------------|-------------------------------|-----------------------------|
-|React            |Nodejs                         |  Mumpy
-|          |           |         |
-|          |                |                                  |
+|Front End        | Backend        |  Python          |
+|-----------------|----------------|------------------|
+|React            |Node.js         |  Scikit-Learn    |
+|                 |                |                  |
+|Chara.UI         |Cloudinary      |  Tensorflow      |
+|                 |                |                  |
+|Chart.js         |Dotenv          |  Keras           |
+|                 |                |                  |
+|Leaflet          |Shapefile       |  Open-CV         |
+|                 |                |                  |
+|Wavesurfer.js    |Express         |  Librosa         |
 
 
-# Thank You
+
+# Thank You!
