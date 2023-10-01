@@ -6,17 +6,17 @@ async function runPythonScript(scriptPath, cmdLineArgs, virtualEnvPath = 'ECO_EN
 
         const activationScript = process.platform === 'win32' ? `"${virtualEnvPath}\\Scripts\\activate"` : `source ./${virtualEnvPath}/bin/activate`;
         
-        const pythonScriptCommand = `python "${scriptPath}" ${cmdLineArgs}`;
+        const pythonScriptCommand = `python "${scriptPath}" ${cmdLineArgs} 2>${process.platform === 'win32' ? 'nul' : '/dev/null'}`;
         const fullCommand = `${activationScript} && ${pythonScriptCommand}`;
 
         console.log('Full Command:', fullCommand);
 
         const { stdout, stderr } = await executeCommand(shell, fullCommand);
 
-        if (stderr) {
-            console.error('Python stderr:', stderr);
-            throw new Error('Python script encountered an error.');
-        }
+        // if (stderr) {
+        //     console.error('Python stderr:', stderr);
+        //     throw new Error('Python script encountered an error.');
+        // }
 
         return stdout;
     } catch (err) {
