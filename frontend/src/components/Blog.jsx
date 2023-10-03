@@ -1,17 +1,18 @@
 import React from "react";
 import "../styles/Blog.css";
 
+
 export const Blog = ({ videoId }) => {
   return (
-    <div className="blog-container" style={{ margin: "2% 7% 7% 7%" }}>
+    <div className="blog-container">
       <h1 style={{ fontSize: "30px" }}>
         <strong>Geekco 🦎 -</strong> Bridging gaps between Ecology and
         Technology
       </h1>
       <iframe
         title="EcoTech Demo Video Preview"
-        width="700"
-        height="400"
+        width="700vw"
+        height="400vh"
         src={`https://www.youtube.com/embed/${videoId}`}
         allow="autoplay; encrypted-media"
         allowFullScreen
