@@ -75,7 +75,7 @@ const OilSpillDetector = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/oil-spill-detector",
+        "https://geekco.onrender.com/api/ai/oil-spill-detector",
         formData,
         {
           headers: {
@@ -137,7 +137,7 @@ const OilSpillDetector = () => {
             onDragOver={(e) => e.preventDefault()}
           >
             <Box
-              w="300px"
+              // w="300px"
               h={{ base: "150px", lg: "250px",md: "200px" }}
               mt={4}
             >

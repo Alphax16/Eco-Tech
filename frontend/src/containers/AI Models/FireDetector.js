@@ -50,7 +50,7 @@ const  FireDetector = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/fire-detector",
+        "https://geekco.onrender.com/api/ai/fire-detector",
         formData,
         {
           headers: {
@@ -119,7 +119,7 @@ const  FireDetector = () => {
             onDragOver={(e) => e.preventDefault()}
           >
             <Box
-              w="300px"
+              // w="300px"
               h={{ base: "150px", lg: "250px" }}
               mt={4}
             >

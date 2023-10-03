@@ -39,7 +39,7 @@ const ForestMap = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("http://127.0.0.1:5000/api/map-data");
+        const response = await axios.post("https://geekco.onrender.com/api/map-data");
         console.log(response.data);
         setShapefileData(response.data);
       } catch (err) {
@@ -62,9 +62,7 @@ const ForestMap = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/api/tree-cover"
-        );
+        const response = await axios.post("https://geekco.onrender.com/api/tree-cover");
         console.log(response.data);
         setTreeStats(response.data);
       } catch (err) {
@@ -94,13 +92,16 @@ const ForestMap = () => {
       <VStack
         justifyContent="center"
         alignItems="flex-start"
-        flexDir={{ base: "column", lg: "row" }}
+        // flexDir={{ base: "column", lg: "row" }}
+        flexDir={{ lg: "row" }}
       >
-        <Box color="#fff" width={"30%"}>
+        <Box color="#fff" width={"25%"}>
           <Center>
             <FormControl width={"50%"} textAlign={"center"}>
-              <Text mt={"-60px"} ml={"-2.5vw"} py={"6"} fontSize={{ base: 'sm', sm: 'lg' }}>
-                Select an Year:
+              <Text mt={"-60px"} 
+              // ml={"-2.5vw"} 
+              py={"6"} fontSize={{ base: 'sm', sm: 'lg' }}>
+                Select Year:
               </Text>
               <Popover
                 isOpen={isYearSelectorOpen}
@@ -119,7 +120,7 @@ const ForestMap = () => {
                   </Button> */}
                 {/* </PopoverTrigger> */}
 
-                <PopoverContent zIndex={12} width={"12rem"}>
+                <PopoverContent zIndex={12} width={{base: "60%", lg: "12rem"}}>
                   <PopoverBody>
                     <VStack spacing={1}>
                       {
@@ -146,7 +147,7 @@ const ForestMap = () => {
           </Center>
         </Box>
 
-        <Box w="65%" h="600px" zIndex={"1"}>
+        <Box w="70%" h="600px" px={"0.5"} zIndex={"1"}>
           <MapContainer
             center={[20.5937, 78.9629]}
             zoom={5}

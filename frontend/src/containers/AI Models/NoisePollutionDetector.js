@@ -95,7 +95,7 @@ const NoisePollutionDetector = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/ai/noise-pollution-detector",
+          "https://geekco.onrender.com/api/ai/noise-pollution-detector",
           formData,
           {
             headers: {

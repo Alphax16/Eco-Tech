@@ -17,7 +17,7 @@ function AqiPredictor() {
     const selectedDate = `${day}-${month}-${year}`;
 
     axios
-      .post("http://localhost:5000/api/ai/aqi-predictor", {
+      .post("https://geekco.onrender.com/api/ai/aqi-predictor", {
         date: selectedDate,
       })
       .then((response) => {

@@ -36,11 +36,13 @@ const HorizontalScrollCarousel = () => {
   return (
     <Box pos="relative" ref={targetRef}  h={{base:'180vh' ,lg:"140vh"}} >
         <Center py={'5'}>
-          <Text fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }} color={'#fff'} fontWeight={'bold'}>
+          <Heading py={{sm: '5', lg: '7'}} fontSize={{ base: '2xl', sm: '4xl', 
+          // lg: '6xl'
+         }} color={'#fff'} fontWeight={'bold'}>
     Types of Pollution
-    </Text>
+    </Heading>
   </Center>
-      <Flex pos="sticky" top="0" h="60%" align="center" overflow="hidden">
+      <Flex pos="sticky" top="0" pt={{sm: '-16'}} h="60%" align="center" overflow="hidden">
         <MotionBox style={{ x }} display="flex" gap="4">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;

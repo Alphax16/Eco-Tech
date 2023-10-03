@@ -107,7 +107,7 @@ function Quiz() {
   };
 
   return (
-    <Box bg="#12504B" h="100vh">
+    <Box bg="#12504B" h="max-content">
       <AlertDialog isOpen={isOpen} onClose={onClose}>
         <AlertDialogOverlay>
           <AlertDialogContent>
