@@ -75,7 +75,7 @@ const OilSpillDetector = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/oil-spill-detector",
+        "https://geekco.onrender.com/api/ai/oil-spill-detector",
         formData,
         {
           headers: {

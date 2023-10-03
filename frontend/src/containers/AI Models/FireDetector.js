@@ -50,7 +50,7 @@ const  FireDetector = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/fire-detector",
+        "https://geekco.onrender.com/api/ai/fire-detector",
         formData,
         {
           headers: {

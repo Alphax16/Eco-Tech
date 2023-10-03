@@ -19,7 +19,8 @@ const HeroSection =()=> {
   };
 
   const handleGetStarted = () => {
-    navigate("/models");
+    // navigate("/models");
+    navigate("/how-it-works");
   }
 
   const MotionContainer = motion(Container);
@@ -174,9 +175,9 @@ const HeroSection =()=> {
               transition={{ duration: 1, origin: 1.2 }}
           
               w={'100%'}
-              h={{lg: '100%', base:'75%'}}
+              h={{lg: '100%', base:'65%'}}
               src={
-                '/assets/tree-right.png'
+                "/assets/tree-right.png"
               }
               objectFit={'contain'} 
             />

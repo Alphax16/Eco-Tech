@@ -10,7 +10,7 @@ function Visualizations() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("http://127.0.0.1:5000/api/tree-cover");
+        const response = await axios.post("https://geekco.onrender.com/api/tree-cover");
         console.log(response.data);
         setTreeStats(response.data);
       } catch (err) {
@@ -37,7 +37,7 @@ function Visualizations() {
         >
           Tree Coverage Area (in Sq. kilometers) Time Series Plots
         </Heading>
-        <Plot data={treeStats} width={'80vw'} />
+        <Plot data={treeStats} width={'90vw'} />
       </VStack>
     </Flex>
   );
